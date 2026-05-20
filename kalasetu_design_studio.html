@@ -1,0 +1,2628 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Kala Setu Design Studio — Crafted Spaces</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;1,300&family=Jost:wght@200;300;400&display=swap" rel="stylesheet">
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  :root {
+    --cream: #f7f5f0;
+    --warm-white: #faf9f7;
+    --text-dark: #1a1916;
+    --text-mid: #5c5a56;
+    --text-light: #9e9c97;
+    --border: rgba(26,25,22,0.1);
+    --accent: #c8b89a;
+    --accent-dark: #8a7355;
+    --gold: #b8996a;
+    --nav-h: 64px;
+  }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    font-family: 'Jost', sans-serif;
+    font-weight: 300;
+    background: var(--warm-white);
+    color: var(--text-dark);
+    line-height: 1.7;
+    font-size: 15px;
+    overflow-x: hidden;
+  }
+
+  /* NAV */
+  nav {
+    position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+    height: var(--nav-h);
+    background: rgba(250,249,247,0.92);
+    backdrop-filter: blur(20px);
+    border-bottom: 0.5px solid var(--border);
+    display: flex; align-items: center; justify-content: space-between;
+    padding: 0 5vw;
+  }
+
+  .logo-mark {
+    display: flex;
+    align-items: center;
+    gap: 0;
+    cursor: pointer;
+    text-decoration: none;
+  }
+  .logo-mark svg { height: 32px; width: auto; }
+
+  .nav-links {
+    display: flex; gap: 2.5rem; list-style: none;
+  }
+  .nav-links a {
+    font-size: 11.5px;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    text-decoration: none;
+    color: var(--text-mid);
+    transition: color 0.2s;
+    cursor: pointer;
+  }
+  .nav-links a:hover, .nav-links a.active { color: var(--text-dark); }
+
+  /* PAGES */
+  .page { display: none; min-height: 100vh; padding-top: var(--nav-h); }
+  .page.active { display: block; }
+
+  /* ── HOME ── */
+  .hero {
+    height: 100vh;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    align-items: center;
+    padding: 0 8vw;
+    gap: 6vw;
+  }
+
+  .hero-text h1 {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: clamp(52px, 6vw, 88px);
+    font-weight: 300;
+    line-height: 1.05;
+    letter-spacing: -0.01em;
+    margin-bottom: 1.5rem;
+  }
+  .hero-text h1 em { font-style: italic; color: var(--gold); }
+
+  .hero-text p {
+    font-size: 14px;
+    color: var(--text-mid);
+    max-width: 360px;
+    line-height: 1.9;
+    margin-bottom: 2.5rem;
+    letter-spacing: 0.02em;
+  }
+
+  .btn {
+    display: inline-block;
+    font-size: 11px;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    padding: 14px 36px;
+    border: 0.5px solid var(--text-dark);
+    color: var(--text-dark);
+    text-decoration: none;
+    cursor: pointer;
+    background: none;
+    transition: background 0.25s, color 0.25s;
+    font-family: 'Jost', sans-serif;
+    font-weight: 300;
+  }
+  .btn:hover { background: var(--text-dark); color: var(--warm-white); }
+  .btn-gold {
+    border-color: var(--gold);
+    color: var(--gold);
+  }
+  .btn-gold:hover { background: var(--gold); color: white; }
+
+  .hero-visual {
+    position: relative;
+    height: 70vh;
+  }
+
+  .hero-plan {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+  }
+
+  /* SECTION SHARED */
+  section { padding: 100px 8vw; }
+  .section-label {
+    font-size: 10px;
+    letter-spacing: 0.3em;
+    text-transform: uppercase;
+    color: var(--gold);
+    margin-bottom: 1rem;
+  }
+  .section-title {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: clamp(36px, 4vw, 56px);
+    font-weight: 300;
+    line-height: 1.1;
+    margin-bottom: 2rem;
+  }
+  .divider {
+    width: 40px;
+    height: 0.5px;
+    background: var(--accent);
+    margin: 2rem 0;
+  }
+
+  /* HOME STATS */
+  .stats-row {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 1px;
+    background: var(--border);
+    border-top: 0.5px solid var(--border);
+    border-bottom: 0.5px solid var(--border);
+  }
+  .stat-box {
+    background: var(--warm-white);
+    padding: 3rem 2rem;
+    text-align: center;
+  }
+  .stat-box .num {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 52px;
+    font-weight: 300;
+    color: var(--text-dark);
+    line-height: 1;
+    margin-bottom: 0.4rem;
+  }
+  .stat-box .lbl {
+    font-size: 10px;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--text-light);
+  }
+
+  /* HOME SERVICES STRIP */
+  .services-strip {
+    display: grid;
+    grid-template-columns: repeat(3,1fr);
+    gap: 2px;
+    background: var(--border);
+  }
+  .service-card {
+    background: var(--cream);
+    padding: 3rem 2.5rem;
+  }
+  .service-card h3 {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 26px;
+    font-weight: 300;
+    margin-bottom: 0.75rem;
+  }
+  .service-card p {
+    font-size: 13px;
+    color: var(--text-mid);
+    line-height: 1.8;
+  }
+
+  /* ── ABOUT ── */
+  .about-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 8vw;
+    align-items: start;
+  }
+  .about-text p {
+    color: var(--text-mid);
+    font-size: 14px;
+    line-height: 1.9;
+    margin-bottom: 1.2rem;
+  }
+  .philosophy-list {
+    list-style: none;
+    margin-top: 2rem;
+  }
+  .philosophy-list li {
+    display: flex;
+    gap: 1.5rem;
+    padding: 1.5rem 0;
+    border-bottom: 0.5px solid var(--border);
+    font-size: 13px;
+    color: var(--text-mid);
+  }
+  .philosophy-list li .num {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 22px;
+    color: var(--gold);
+    min-width: 30px;
+    line-height: 1;
+  }
+
+  /* ── PROJECTS ── */
+  .projects-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1px;
+    background: var(--border);
+    margin-top: 3rem;
+  }
+  .project-card {
+    background: var(--warm-white);
+    cursor: pointer;
+    overflow: hidden;
+    position: relative;
+  }
+  .project-card:hover .project-overlay { opacity: 1; }
+  .project-render {
+    width: 100%;
+    aspect-ratio: 4/3;
+    display: block;
+    background: var(--cream);
+    overflow: hidden;
+  }
+  .project-info {
+    padding: 2rem 2rem 2.5rem;
+  }
+  .project-info .tag {
+    font-size: 9.5px;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--gold);
+    margin-bottom: 0.5rem;
+  }
+  .project-info h3 {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 24px;
+    font-weight: 300;
+    margin-bottom: 0.5rem;
+  }
+  .project-info p {
+    font-size: 12.5px;
+    color: var(--text-mid);
+    line-height: 1.7;
+  }
+  .project-meta {
+    display: flex;
+    gap: 2rem;
+    margin-top: 1.2rem;
+    padding-top: 1.2rem;
+    border-top: 0.5px solid var(--border);
+  }
+  .meta-item { font-size: 11px; color: var(--text-light); letter-spacing: 0.08em; }
+  .meta-item strong { color: var(--text-mid); font-weight: 400; display: block; font-size: 13px; }
+
+  .projects-coming {
+    margin-top: 4rem;
+    padding-top: 3rem;
+    border-top: 0.5px solid var(--border);
+  }
+  .projects-coming h3 {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 20px;
+    font-weight: 300;
+    color: var(--text-mid);
+    margin-bottom: 1.5rem;
+  }
+  .coming-list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.75rem;
+  }
+  .coming-pill {
+    font-size: 11px;
+    letter-spacing: 0.1em;
+    padding: 8px 18px;
+    border: 0.5px solid var(--border);
+    color: var(--text-light);
+  }
+
+  /* ── TURNKEY ── */
+  .turnkey-hero {
+    background: var(--cream);
+    padding: 100px 8vw;
+    text-align: center;
+  }
+  .turnkey-hero .section-title { max-width: 640px; margin: 0 auto 1.5rem; }
+  .turnkey-hero p { max-width: 520px; margin: 0 auto; color: var(--text-mid); font-size: 14px; }
+
+  .turnkey-steps {
+    display: grid;
+    grid-template-columns: repeat(5,1fr);
+    gap: 1px;
+    background: var(--border);
+    margin-top: 0;
+  }
+  .step-card {
+    background: var(--warm-white);
+    padding: 3rem 2rem;
+  }
+  .step-card .step-num {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 44px;
+    font-weight: 300;
+    color: var(--accent);
+    line-height: 1;
+    margin-bottom: 1rem;
+  }
+  .step-card h4 {
+    font-size: 11px;
+    letter-spacing: 0.1em;
+    font-weight: 400;
+    margin-bottom: 0.75rem;
+    text-transform: uppercase;
+  }
+  .step-card p { font-size: 12.5px; color: var(--text-mid); line-height: 1.8; }
+
+  .turnkey-why {
+    padding: 80px 8vw;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 6vw;
+    align-items: start;
+  }
+  .why-list { list-style: none; margin-top: 1rem; }
+  .why-list li {
+    display: flex; gap: 1.5rem; padding: 1.25rem 0;
+    border-bottom: 0.5px solid var(--border);
+    font-size: 13.5px; color: var(--text-mid);
+    align-items: flex-start;
+  }
+  .why-list li svg { flex-shrink: 0; margin-top: 3px; }
+
+  /* ── QUOTATION ── */
+  .quote-wrap {
+    max-width: 820px;
+    margin: 0 auto;
+    padding: 80px 4vw;
+  }
+  .quote-step { display: none; }
+  .quote-step.active { display: block; animation: fadeUp 0.4s ease; }
+
+  @keyframes fadeUp {
+    from { opacity: 0; transform: translateY(12px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+
+  .quote-step h2 {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 38px;
+    font-weight: 300;
+    margin-bottom: 0.5rem;
+  }
+  .quote-step .sub {
+    font-size: 13px;
+    color: var(--text-light);
+    margin-bottom: 3rem;
+    letter-spacing: 0.05em;
+  }
+
+  .q-grid { display: grid; gap: 1rem; }
+  .q-grid-2 { grid-template-columns: 1fr 1fr; }
+  .q-grid-3 { grid-template-columns: 1fr 1fr 1fr; }
+
+  .q-option {
+    border: 0.5px solid var(--border);
+    padding: 1.75rem 1.5rem;
+    cursor: pointer;
+    transition: border-color 0.2s, background 0.2s;
+    position: relative;
+    background: none;
+    text-align: left;
+  }
+  .q-option:hover { border-color: var(--gold); }
+  .q-option.selected { border-color: var(--text-dark); background: var(--cream); }
+  .q-option .opt-label {
+    font-size: 11px;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--gold);
+    margin-bottom: 0.4rem;
+  }
+  .q-option .opt-title {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 22px;
+    font-weight: 300;
+    color: var(--text-dark);
+    margin-bottom: 0.4rem;
+  }
+  .q-option .opt-desc { font-size: 12px; color: var(--text-mid); line-height: 1.7; }
+
+  .q-field {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+  .q-field label {
+    font-size: 11px;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: var(--text-mid);
+  }
+  .q-field input, .q-field select {
+    border: 0.5px solid var(--border);
+    background: none;
+    padding: 14px 16px;
+    font-family: 'Jost', sans-serif;
+    font-size: 14px;
+    font-weight: 300;
+    color: var(--text-dark);
+    outline: none;
+    transition: border-color 0.2s;
+    appearance: none;
+    -webkit-appearance: none;
+  }
+  .q-field input:focus, .q-field select:focus { border-color: var(--text-dark); }
+
+  .q-nav {
+    display: flex; gap: 1rem; margin-top: 3rem; align-items: center;
+  }
+  .q-back {
+    font-size: 11px;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: var(--text-light);
+    cursor: pointer;
+    background: none;
+    border: none;
+    font-family: 'Jost', sans-serif;
+    font-weight: 300;
+  }
+  .q-back:hover { color: var(--text-dark); }
+
+  .progress-bar {
+    height: 1px;
+    background: var(--border);
+    margin-bottom: 4rem;
+    position: relative;
+  }
+  .progress-fill {
+    position: absolute;
+    top: 0; left: 0;
+    height: 100%;
+    background: var(--gold);
+    transition: width 0.4s ease;
+  }
+
+  /* RESULT */
+  .result-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 2px;
+    background: var(--border);
+    margin-top: 2rem;
+  }
+  .result-card {
+    background: var(--cream);
+    padding: 2.5rem 2rem;
+  }
+  .result-card .r-cat {
+    font-size: 10px;
+    letter-spacing: 0.25em;
+    text-transform: uppercase;
+    color: var(--gold);
+    margin-bottom: 1.2rem;
+  }
+  .result-card .r-item {
+    display: flex;
+    justify-content: space-between;
+    padding: 0.6rem 0;
+    font-size: 12.5px;
+    border-bottom: 0.5px solid var(--border);
+    color: var(--text-mid);
+  }
+  .result-card .r-item .r-amt {
+    color: var(--text-dark);
+    font-weight: 400;
+  }
+  .result-total {
+    grid-column: 1/-1;
+    background: var(--text-dark);
+    color: var(--warm-white);
+    padding: 2.5rem 2rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  .result-total .t-label {
+    font-size: 11px;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    opacity: 0.6;
+  }
+  .result-total .t-amt {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 44px;
+    font-weight: 300;
+  }
+
+  .blur-card {
+    margin-top: 3rem;
+    border: 0.5px solid var(--border);
+    padding: 3rem;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+  }
+  .blur-inner {
+    filter: blur(6px);
+    pointer-events: none;
+    user-select: none;
+  }
+  .blur-overlay {
+    position: absolute;
+    inset: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background: rgba(250,249,247,0.85);
+    gap: 1rem;
+  }
+  .blur-overlay p {
+    font-size: 13px;
+    color: var(--text-mid);
+    max-width: 320px;
+    line-height: 1.8;
+    text-align: center;
+  }
+
+  /* ── QUERY ── */
+  .query-wrap {
+    max-width: 640px;
+    margin: 0 auto;
+    padding: 80px 4vw;
+  }
+  .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 1.5rem; margin-bottom: 1.5rem; }
+  .form-field { display: flex; flex-direction: column; gap: 0.5rem; }
+  .form-field label {
+    font-size: 10.5px;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--text-mid);
+  }
+  .form-field input,
+  .form-field select,
+  .form-field textarea {
+    border: 0.5px solid var(--border);
+    background: none;
+    padding: 13px 15px;
+    font-family: 'Jost', sans-serif;
+    font-size: 13.5px;
+    font-weight: 300;
+    color: var(--text-dark);
+    outline: none;
+    transition: border-color 0.2s;
+    resize: vertical;
+    appearance: none;
+  }
+  .form-field input:focus,
+  .form-field select:focus,
+  .form-field textarea:focus { border-color: var(--gold); }
+
+  .success-msg {
+    display: none;
+    text-align: center;
+    padding: 4rem 2rem;
+    animation: fadeUp 0.5s ease;
+  }
+  .success-msg .big {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 52px;
+    font-weight: 300;
+    line-height: 1;
+    margin-bottom: 1rem;
+  }
+  .success-msg p { font-size: 14px; color: var(--text-mid); }
+
+  /* FOOTER */
+  footer {
+    border-top: 0.5px solid var(--border);
+    padding: 4rem 8vw;
+    display: grid;
+    grid-template-columns: 2fr 1fr 1fr 1fr;
+    gap: 3rem;
+  }
+  footer h4 {
+    font-size: 10px;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+    color: var(--text-mid);
+    margin-bottom: 1.2rem;
+  }
+  footer p, footer a {
+    font-size: 12.5px;
+    color: var(--text-light);
+    text-decoration: none;
+    display: block;
+    margin-bottom: 0.5rem;
+    line-height: 1.7;
+  }
+  footer a:hover { color: var(--text-dark); }
+  .footer-copy {
+    border-top: 0.5px solid var(--border);
+    padding: 1.5rem 8vw;
+    display: flex;
+    justify-content: space-between;
+    font-size: 11px;
+    color: var(--text-light);
+    letter-spacing: 0.05em;
+  }
+
+  /* PROJECT DETAIL MODAL */
+  .modal-overlay {
+    display: none;
+    position: fixed; inset: 0; z-index: 200;
+    background: rgba(26,25,22,0.65);
+    overflow-y: auto;
+  }
+  .modal-overlay.open { display: block; }
+  .modal-box {
+    background: var(--warm-white);
+    max-width: 960px;
+    margin: 4rem auto;
+    position: relative;
+    animation: fadeUp 0.3s ease;
+  }
+  .modal-close {
+    position: absolute; top: 1.5rem; right: 1.5rem;
+    background: none; border: none; cursor: pointer;
+    font-size: 22px; color: var(--text-mid);
+    font-family: 'Jost', sans-serif; font-weight: 200;
+    line-height: 1; z-index: 10;
+  }
+  .modal-close:hover { color: var(--text-dark); }
+  .modal-render {
+    width: 100%;
+    aspect-ratio: 16/9;
+    background: var(--cream);
+    overflow: hidden;
+  }
+  .modal-content { padding: 3rem; }
+  .modal-content h2 {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 36px;
+    font-weight: 300;
+    margin-bottom: 0.5rem;
+  }
+  .modal-content .tag {
+    font-size: 10px;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--gold);
+    margin-bottom: 1.5rem;
+  }
+  .modal-specs {
+    display: grid;
+    grid-template-columns: repeat(4,1fr);
+    gap: 1px;
+    background: var(--border);
+    margin: 2rem 0;
+  }
+  .spec-box {
+    background: var(--cream);
+    padding: 1.25rem;
+    font-size: 12px;
+    color: var(--text-mid);
+  }
+  .spec-box strong { display: block; font-size: 16px; font-weight: 400; color: var(--text-dark); margin-bottom: 2px; }
+  .modal-content p.desc { font-size: 13.5px; color: var(--text-mid); line-height: 1.9; }
+
+  /* PLAN/RENDER GRID inside modal */
+  .plan-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1px;
+    background: var(--border);
+    margin-top: 2rem;
+  }
+  .plan-cell { background: var(--cream); }
+  .plan-img {
+    background: var(--cream);
+    aspect-ratio: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+  }
+  .plan-label {
+    font-size: 10px;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--text-light);
+    text-align: center;
+    padding: 0.75rem;
+    background: var(--cream);
+  }
+
+  @media (max-width: 768px) {
+    .hero { grid-template-columns: 1fr; height: auto; padding: 8rem 6vw 4rem; }
+    .hero-visual { height: 300px; }
+    .stats-row { grid-template-columns: 1fr 1fr; }
+    .services-strip { grid-template-columns: 1fr; }
+    .about-grid, .turnkey-why { grid-template-columns: 1fr; }
+    .projects-grid { grid-template-columns: 1fr; }
+    .turnkey-steps { grid-template-columns: 1fr 1fr; }
+    footer { grid-template-columns: 1fr 1fr; }
+    .q-grid-2, .q-grid-3 { grid-template-columns: 1fr; }
+    .result-grid { grid-template-columns: 1fr; }
+    nav { padding: 0 4vw; }
+    .nav-links { gap: 1.5rem; }
+    .plan-grid { grid-template-columns: 1fr; }
+    .modal-specs { grid-template-columns: 1fr 1fr; }
+  }
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <!-- Minimal Kala Setu–inspired logo adapted for Kala Setu Design Studio -->
+  <div class="logo-mark" onclick="showPage('home')">
+    <svg viewBox="0 0 380 44" xmlns="http://www.w3.org/2000/svg" height="36">
+      <!-- top rule -->
+      <line x1="0" y1="12" x2="380" y2="12" stroke="#1a1916" stroke-width="1.4"/>
+      <!-- bridge arch from left -->
+      <path d="M 0,12 A 16,16 0 0 1 32,12" fill="none" stroke="#1a1916" stroke-width="1.4" stroke-linecap="round"/>
+      <!-- dot on right -->
+      <circle cx="380" cy="4" r="4" fill="#b8996a"/>
+      <!-- WORDMARK: KALA SETU in dark, DESIGN STUDIO in gold italic -->
+      <text x="6" y="32" font-family="'Cormorant Garamond', serif" font-weight="400" font-size="20" letter-spacing="4" fill="#1a1916">KALA SETU</text>
+      <text x="168" y="32" font-family="'Cormorant Garamond', serif" font-weight="300" font-size="20" letter-spacing="3" fill="#b8996a" font-style="italic">DESIGN STUDIO</text>
+      <!-- bottom thin rule -->
+      <line x1="0" y1="38" x2="380" y2="38" stroke="#1a1916" stroke-width="0.4"/>
+    </svg>
+  </div>
+  <ul class="nav-links">
+    <li><a onclick="showPage('home')" id="nav-home" class="active">Home</a></li>
+    <li><a onclick="showPage('about')" id="nav-about">About</a></li>
+    <li><a onclick="showPage('projects')" id="nav-projects">Projects</a></li>
+    <li><a onclick="showPage('turnkey')" id="nav-turnkey">Turnkey</a></li>
+    <li><a onclick="showPage('quotation')" id="nav-quotation">Quotation</a></li>
+    <li><a onclick="showPage('query')" id="nav-query">Query</a></li>
+  </ul>
+</nav>
+
+<!-- ═══════════════ HOME ═══════════════ -->
+<div id="page-home" class="page active">
+
+  <div class="hero">
+    <div class="hero-text">
+      <p class="section-label">Residential · Commercial · Turnkey</p>
+      <h1>Space is the<br><em>purest form</em><br>of luxury.</h1>
+      <p>We design interiors that breathe — where silence, material, and light converge into something that feels inevitable.</p>
+      <a class="btn" onclick="showPage('projects')">View Work</a>
+      &nbsp;&nbsp;
+      <a class="btn btn-gold" onclick="showPage('quotation')" style="margin-top:0">Get Quotation</a>
+    </div>
+    <div class="hero-visual">
+      <svg viewBox="0 0 480 420" xmlns="http://www.w3.org/2000/svg" width="100%" height="100%" style="opacity:0.85">
+        <defs>
+          <pattern id="grid" width="20" height="20" patternUnits="userSpaceOnUse">
+            <path d="M 20 0 L 0 0 0 20" fill="none" stroke="#e8e4dc" stroke-width="0.5"/>
+          </pattern>
+        </defs>
+        <rect width="480" height="420" fill="#f7f5f0"/>
+        <rect width="480" height="420" fill="url(#grid)"/>
+        <rect x="40" y="40" width="400" height="340" fill="none" stroke="#1a1916" stroke-width="3"/>
+        <rect x="40" y="40" width="240" height="160" fill="rgba(200,184,154,0.12)" stroke="#1a1916" stroke-width="1.5"/>
+        <text x="150" y="125" text-anchor="middle" font-family="Cormorant Garamond, serif" font-size="11" fill="#9e9c97" letter-spacing="2">LIVING</text>
+        <text x="150" y="140" text-anchor="middle" font-family="Jost, sans-serif" font-size="8" fill="#c8b89a" letter-spacing="1">24 SQ.M</text>
+        <rect x="280" y="40" width="160" height="160" fill="rgba(200,184,154,0.08)" stroke="#1a1916" stroke-width="1.5"/>
+        <text x="360" y="125" text-anchor="middle" font-family="Cormorant Garamond, serif" font-size="11" fill="#9e9c97" letter-spacing="2">MASTER BED</text>
+        <text x="360" y="140" text-anchor="middle" font-family="Jost, sans-serif" font-size="8" fill="#c8b89a" letter-spacing="1">18 SQ.M</text>
+        <rect x="40" y="200" width="160" height="180" fill="rgba(200,184,154,0.1)" stroke="#1a1916" stroke-width="1.5"/>
+        <text x="120" y="292" text-anchor="middle" font-family="Cormorant Garamond, serif" font-size="11" fill="#9e9c97" letter-spacing="2">KITCHEN</text>
+        <text x="120" y="307" text-anchor="middle" font-family="Jost, sans-serif" font-size="8" fill="#c8b89a" letter-spacing="1">16 SQ.M</text>
+        <rect x="200" y="200" width="120" height="100" fill="rgba(200,184,154,0.08)" stroke="#1a1916" stroke-width="1.5"/>
+        <text x="260" y="252" text-anchor="middle" font-family="Cormorant Garamond, serif" font-size="10" fill="#9e9c97" letter-spacing="1">BED 2</text>
+        <text x="260" y="265" text-anchor="middle" font-family="Jost, sans-serif" font-size="8" fill="#c8b89a" letter-spacing="1">12 SQ.M</text>
+        <rect x="200" y="300" width="120" height="80" fill="rgba(200,184,154,0.07)" stroke="#1a1916" stroke-width="1.5"/>
+        <text x="260" y="344" text-anchor="middle" font-family="Cormorant Garamond, serif" font-size="10" fill="#9e9c97" letter-spacing="1">BATH</text>
+        <rect x="320" y="200" width="120" height="60" fill="rgba(200,184,154,0.05)" stroke="#1a1916" stroke-width="1.5"/>
+        <text x="380" y="233" text-anchor="middle" font-family="Cormorant Garamond, serif" font-size="9" fill="#c8b89a" letter-spacing="1">PASSAGE</text>
+        <rect x="320" y="260" width="120" height="120" fill="rgba(200,184,154,0.08)" stroke="#1a1916" stroke-width="1.5"/>
+        <text x="380" y="325" text-anchor="middle" font-family="Cormorant Garamond, serif" font-size="10" fill="#9e9c97" letter-spacing="1">STUDY</text>
+        <path d="M 40 190 L 60 190" stroke="#1a1916" stroke-width="1.5" fill="none"/>
+        <path d="M 200 190 L 220 190" stroke="#1a1916" stroke-width="1.5" fill="none"/>
+        <path d="M 280 185 L 300 185" stroke="#1a1916" stroke-width="1.5" fill="none"/>
+        <circle cx="450" cy="55" r="10" fill="none" stroke="#c8b89a" stroke-width="0.5"/>
+        <text x="450" y="50" text-anchor="middle" font-family="Jost, sans-serif" font-size="9" fill="#c8b89a">N</text>
+        <path d="M450 42 L450 35" stroke="#c8b89a" stroke-width="0.5"/>
+        <line x1="40" y1="400" x2="120" y2="400" stroke="#c8b89a" stroke-width="0.5"/>
+        <text x="80" y="415" text-anchor="middle" font-family="Jost, sans-serif" font-size="8" fill="#c8b89a">4M</text>
+      </svg>
+    </div>
+  </div>
+
+  <div class="stats-row">
+    <div class="stat-box"><div class="num">12+</div><div class="lbl">Years of craft</div></div>
+    <div class="stat-box"><div class="num">200+</div><div class="lbl">Projects completed</div></div>
+    <div class="stat-box"><div class="num">18</div><div class="lbl">Cities served</div></div>
+    <div class="stat-box"><div class="num">98%</div><div class="lbl">Client retention</div></div>
+  </div>
+
+  <section>
+    <p class="section-label">What we do</p>
+    <h2 class="section-title">From concept<br>to completion.</h2>
+    <div class="divider"></div>
+    <div class="services-strip">
+      <div class="service-card">
+        <h3>Residential Design</h3>
+        <p>Apartments, villas, and row houses transformed into personal sanctuaries. Every room designed with intention — light, flow, materiality.</p>
+      </div>
+      <div class="service-card">
+        <h3>Commercial Spaces</h3>
+        <p>Offices, boutiques, and hospitality spaces that communicate brand identity through spatial experience and curated atmospheres.</p>
+      </div>
+      <div class="service-card">
+        <h3>Turnkey Projects</h3>
+        <p>Complete design-to-handover service. We handle every discipline so you receive a finished, furnished space — nothing left undone.</p>
+      </div>
+    </div>
+  </section>
+
+</div>
+
+<!-- ═══════════════ ABOUT ═══════════════ -->
+<div id="page-about" class="page">
+  <section style="padding-top: 100px;">
+    <div class="about-grid">
+      <div class="about-text">
+        <p class="section-label">Our Story</p>
+        <h2 class="section-title">Designing silence<br>into every room.</h2>
+        <div class="divider"></div>
+        <p>Kala Setu Design Studio was founded on a single belief — that the most powerful interior is one you don't immediately notice. It simply makes you feel at ease. Every decision, from the soffit height to the thread count of fabric, is made in service of that feeling.</p>
+        <p>Based across India's finest residential corridors, we work on projects from Delhi to Mumbai, Jodhpur to Bangalore — bringing the same restraint and rigour to every brief, regardless of scale.</p>
+        <p>We are architects of atmosphere. Our practice spans civil construction, interior architecture, joinery, lighting design, and landscape — all coordinated through a single creative vision.</p>
+        <div style="margin-top: 2.5rem;">
+          <a class="btn" onclick="showPage('query')">Work With Us</a>
+        </div>
+      </div>
+      <div>
+        <svg viewBox="0 0 400 500" xmlns="http://www.w3.org/2000/svg" width="100%">
+          <rect width="400" height="500" fill="#f2efe9"/>
+          <line x1="50" y1="50" x2="350" y2="50" stroke="#c8b89a" stroke-width="0.5"/>
+          <line x1="50" y1="450" x2="350" y2="450" stroke="#c8b89a" stroke-width="0.5"/>
+          <rect x="80" y="80" width="240" height="340" fill="none" stroke="#c8b89a" stroke-width="0.5"/>
+          <rect x="100" y="100" width="200" height="300" fill="rgba(200,184,154,0.15)" stroke="#1a1916" stroke-width="1"/>
+          <line x1="100" y1="220" x2="300" y2="220" stroke="#c8b89a" stroke-width="0.5" stroke-dasharray="4,4"/>
+          <line x1="200" y1="100" x2="200" y2="400" stroke="#c8b89a" stroke-width="0.5" stroke-dasharray="4,4"/>
+          <circle cx="200" cy="190" r="60" fill="none" stroke="#1a1916" stroke-width="0.8"/>
+          <circle cx="200" cy="190" r="40" fill="rgba(184,153,106,0.1)" stroke="#b8996a" stroke-width="0.5"/>
+          <text x="200" y="330" text-anchor="middle" font-family="Cormorant Garamond, serif" font-size="14" fill="#9e9c97" letter-spacing="4">PRINCIPAL DESIGNER</text>
+          <text x="200" y="360" text-anchor="middle" font-family="Jost, sans-serif" font-size="10" fill="#c8b89a" letter-spacing="2">12 YEARS · INDIA</text>
+        </svg>
+        <ul class="philosophy-list" style="margin-top: 2rem;">
+          <li>
+            <span class="num">01</span>
+            <div><strong style="font-weight:400;font-size:13.5px;">Form follows feeling.</strong><br>
+            <span style="font-size:12.5px;">We design for how a space makes you feel, not how it photographs.</span></div>
+          </li>
+          <li>
+            <span class="num">02</span>
+            <div><strong style="font-weight:400;font-size:13.5px;">Material honesty.</strong><br>
+            <span style="font-size:12.5px;">Natural stone, solid wood, hand-plastered walls — materials that age beautifully.</span></div>
+          </li>
+          <li>
+            <span class="num">03</span>
+            <div><strong style="font-weight:400;font-size:13.5px;">Light as architecture.</strong><br>
+            <span style="font-size:12.5px;">Every project begins with a light study. We design shadows as carefully as walls.</span></div>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </section>
+</div>
+
+<!-- ═══════════════ PROJECTS ═══════════════ -->
+<div id="page-projects" class="page">
+  <section style="padding-top:100px">
+    <p class="section-label">Selected Work</p>
+    <h2 class="section-title">Projects that<br>shaped spaces.</h2>
+    <div class="divider"></div>
+
+    <div class="projects-grid">
+
+      <!-- PROJECT 1 -->
+      <div class="project-card" onclick="openProject(0)">
+        <div class="project-render">
+          <svg viewBox="0 0 500 375" xmlns="http://www.w3.org/2000/svg" width="100%" height="100%">
+            <rect width="500" height="375" fill="#ede9e0"/>
+            <rect x="0" y="250" width="500" height="125" fill="#d4cfc4"/>
+            <rect x="30" y="40" width="2" height="210" fill="#c4bfb4"/>
+            <rect x="60" y="40" width="2" height="210" fill="#c4bfb4"/>
+            <rect x="90" y="40" width="2" height="210" fill="#c4bfb4"/>
+            <rect x="120" y="40" width="2" height="210" fill="#c4bfb4"/>
+            <rect x="150" y="40" width="2" height="210" fill="#c4bfb4"/>
+            <rect x="180" y="40" width="2" height="210" fill="#c4bfb4"/>
+            <rect x="210" y="40" width="2" height="210" fill="#c4bfb4"/>
+            <rect x="240" y="40" width="2" height="210" fill="#c4bfb4"/>
+            <rect x="270" y="40" width="2" height="210" fill="#c4bfb4"/>
+            <rect x="300" y="40" width="2" height="210" fill="#c4bfb4"/>
+            <rect x="330" y="40" width="2" height="210" fill="#c4bfb4"/>
+            <rect x="360" y="40" width="2" height="210" fill="#c4bfb4"/>
+            <rect x="390" y="40" width="2" height="210" fill="#c4bfb4"/>
+            <rect x="420" y="40" width="2" height="210" fill="#c4bfb4"/>
+            <rect x="450" y="40" width="2" height="210" fill="#c4bfb4"/>
+            <rect x="80" y="195" width="260" height="55" fill="#b8b0a3" rx="2"/>
+            <rect x="80" y="165" width="260" height="35" fill="#c4bdb5" rx="2"/>
+            <rect x="160" y="235" width="120" height="40" fill="#a09890" rx="1"/>
+            <ellipse cx="400" cy="175" rx="25" ry="8" fill="#c8b89a"/>
+            <line x1="400" y1="183" x2="400" y2="250" stroke="#8a7a6a" stroke-width="2"/>
+            <rect x="180" y="20" width="140" height="200" fill="rgba(255,248,235,0.3)"/>
+            <text x="250" y="360" text-anchor="middle" font-family="Cormorant Garamond, serif" font-size="11" fill="#8a7a6a" letter-spacing="3">LIVING SPACE · RENDER 01</text>
+          </svg>
+        </div>
+        <div class="project-info">
+          <p class="tag">Residential · Mumbai</p>
+          <h3>The Juhu Retreat</h3>
+          <p>A 3BHK seafront apartment reborn in warm limestone and oiled teak. The brief was simple: bring the ocean inside.</p>
+          <div class="project-meta">
+            <div class="meta-item">Area<strong>2,200 sq.ft</strong></div>
+            <div class="meta-item">Type<strong>Interior</strong></div>
+            <div class="meta-item">Tier<strong>Ultra Luxury</strong></div>
+          </div>
+        </div>
+      </div>
+
+      <!-- PROJECT 2 -->
+      <div class="project-card" onclick="openProject(1)">
+        <div class="project-render">
+          <svg viewBox="0 0 500 375" xmlns="http://www.w3.org/2000/svg" width="100%" height="100%">
+            <rect width="500" height="375" fill="#e8e2d9"/>
+            <rect x="0" y="240" width="500" height="135" fill="#cfc9be"/>
+            <rect x="100" y="170" width="300" height="70" fill="#d4cfc5" rx="2"/>
+            <rect x="100" y="145" width="300" height="30" fill="#c0b9af" rx="2"/>
+            <rect x="95" y="100" width="310" height="50" fill="#b0a99e" rx="2"/>
+            <rect x="55" y="185" width="45" height="55" fill="#b8b2a8" rx="1"/>
+            <rect x="400" y="185" width="45" height="55" fill="#b8b2a8" rx="1"/>
+            <rect x="0" y="20" width="500" height="220" fill="none" stroke="#c8c0b5" stroke-width="0.3"/>
+            <rect x="20" y="40" width="460" height="180" fill="rgba(184,153,106,0.06)" stroke="#b8996a" stroke-width="0.5"/>
+            <ellipse cx="165" cy="140" rx="12" ry="4" fill="#c8b89a"/>
+            <line x1="165" y1="144" x2="165" y2="185" stroke="#9a8870" stroke-width="1.5"/>
+            <ellipse cx="335" cy="140" rx="12" ry="4" fill="#c8b89a"/>
+            <line x1="335" y1="144" x2="335" y2="185" stroke="#9a8870" stroke-width="1.5"/>
+            <text x="250" y="360" text-anchor="middle" font-family="Cormorant Garamond, serif" font-size="11" fill="#8a7a6a" letter-spacing="3">MASTER SUITE · RENDER 01</text>
+          </svg>
+        </div>
+        <div class="project-info">
+          <p class="tag">Residential · Delhi</p>
+          <h3>Vasant Vihar Villa</h3>
+          <p>A complete civil and interior transformation of a 1990s bungalow. Raw concrete, aged brass, and hand-knotted textiles define every room.</p>
+          <div class="project-meta">
+            <div class="meta-item">Area<strong>4,500 sq.ft</strong></div>
+            <div class="meta-item">Type<strong>Turnkey</strong></div>
+            <div class="meta-item">Tier<strong>Luxury</strong></div>
+          </div>
+        </div>
+      </div>
+
+      <!-- PROJECT 3 -->
+      <div class="project-card" onclick="openProject(2)">
+        <div class="project-render">
+          <svg viewBox="0 0 500 375" xmlns="http://www.w3.org/2000/svg" width="100%" height="100%">
+            <rect width="500" height="375" fill="#ece8e0"/>
+            <rect x="0" y="230" width="500" height="145" fill="#d0cbc0"/>
+            <rect x="0" y="180" width="500" height="50" fill="#bdb8ad"/>
+            <rect x="0" y="60" width="320" height="80" fill="#c4bfb4" stroke="#b0ab9f" stroke-width="0.5"/>
+            <rect x="0" y="176" width="500" height="6" fill="#8a7355"/>
+            <rect x="140" y="220" width="220" height="60" fill="#b8b2a7" rx="1"/>
+            <circle cx="210" cy="200" r="12" fill="none" stroke="#c8b89a" stroke-width="1.5"/>
+            <line x1="210" y1="60" x2="210" y2="188" stroke="#c8b89a" stroke-width="1"/>
+            <circle cx="290" cy="200" r="12" fill="none" stroke="#c8b89a" stroke-width="1.5"/>
+            <line x1="290" y1="60" x2="290" y2="188" stroke="#c8b89a" stroke-width="1"/>
+            <rect x="330" y="60" width="160" height="120" fill="rgba(255,248,235,0.4)" stroke="#b0ab9f" stroke-width="0.5"/>
+            <line x1="410" y1="60" x2="410" y2="180" stroke="#b0ab9f" stroke-width="0.5"/>
+            <text x="250" y="358" text-anchor="middle" font-family="Cormorant Garamond, serif" font-size="11" fill="#8a7a6a" letter-spacing="3">KITCHEN · RENDER 01</text>
+          </svg>
+        </div>
+        <div class="project-info">
+          <p class="tag">Residential · Jodhpur</p>
+          <h3>The Blue City Haveli</h3>
+          <p>Heritage conservation meets contemporary living. Restored jali screens, Jodhpur stone floors, and hand-painted indigo accents throughout.</p>
+          <div class="project-meta">
+            <div class="meta-item">Area<strong>3,800 sq.ft</strong></div>
+            <div class="meta-item">Type<strong>Civil + Interior</strong></div>
+            <div class="meta-item">Tier<strong>Ultra Luxury</strong></div>
+          </div>
+        </div>
+      </div>
+
+      <!-- PROJECT 4 -->
+      <div class="project-card" onclick="openProject(3)">
+        <div class="project-render">
+          <svg viewBox="0 0 500 375" xmlns="http://www.w3.org/2000/svg" width="100%" height="100%">
+            <rect width="500" height="375" fill="#e5e0d8"/>
+            <rect x="0" y="250" width="500" height="125" fill="#d0cac0"/>
+            <rect x="50" y="200" width="280" height="50" fill="#a09278" rx="1"/>
+            <rect x="50" y="248" width="10" height="50" fill="#8a7a6a"/>
+            <rect x="318" y="248" width="10" height="50" fill="#8a7a6a"/>
+            <rect x="0" y="40" width="40" height="260" fill="#b8b2a5"/>
+            <line x1="0" y1="100" x2="40" y2="100" stroke="#9e9890" stroke-width="0.5"/>
+            <line x1="0" y1="160" x2="40" y2="160" stroke="#9e9890" stroke-width="0.5"/>
+            <line x1="0" y1="220" x2="40" y2="220" stroke="#9e9890" stroke-width="0.5"/>
+            <ellipse cx="200" cy="265" rx="50" ry="15" fill="#8a8278"/>
+            <rect x="180" y="155" width="120" height="50" fill="#2a2826" rx="1"/>
+            <rect x="235" y="203" width="12" height="20" fill="#2a2826"/>
+            <rect x="380" y="40" width="120" height="210" fill="rgba(255,248,230,0.5)" stroke="#c0bab0" stroke-width="0.5"/>
+            <text x="250" y="358" text-anchor="middle" font-family="Cormorant Garamond, serif" font-size="11" fill="#8a7a6a" letter-spacing="3">HOME OFFICE · RENDER 01</text>
+          </svg>
+        </div>
+        <div class="project-info">
+          <p class="tag">Residential · Bangalore</p>
+          <h3>Indiranagar Urban Flat</h3>
+          <p>A 1,100 sq.ft apartment that works as hard as its owner — smart storage, a dedicated workspace, and a bathroom designed like a spa.</p>
+          <div class="project-meta">
+            <div class="meta-item">Area<strong>1,100 sq.ft</strong></div>
+            <div class="meta-item">Type<strong>Interior</strong></div>
+            <div class="meta-item">Tier<strong>Premium</strong></div>
+          </div>
+        </div>
+      </div>
+
+      <!-- PROJECT 5 -->
+      <div class="project-card" onclick="openProject(4)">
+        <div class="project-render">
+          <svg viewBox="0 0 500 375" xmlns="http://www.w3.org/2000/svg" width="100%" height="100%">
+            <rect width="500" height="375" fill="#eae5dc"/>
+            <rect x="0" y="260" width="500" height="115" fill="#d8d2c8"/>
+            <line x1="0" y1="80" x2="500" y2="80" stroke="#d8d2c8" stroke-width="1"/>
+            <line x1="0" y1="160" x2="500" y2="160" stroke="#d8d2c8" stroke-width="1"/>
+            <line x1="0" y1="240" x2="500" y2="240" stroke="#d8d2c8" stroke-width="1"/>
+            <line x1="166" y1="0" x2="166" y2="260" stroke="#d8d2c8" stroke-width="1"/>
+            <line x1="333" y1="0" x2="333" y2="260" stroke="#d8d2c8" stroke-width="1"/>
+            <ellipse cx="250" cy="200" rx="120" ry="50" fill="#c8c4bc" stroke="#b0aba0" stroke-width="1"/>
+            <ellipse cx="250" cy="200" rx="105" ry="38" fill="#d8d4cc"/>
+            <line x1="250" y1="162" x2="250" y2="145" stroke="#b8996a" stroke-width="3"/>
+            <line x1="238" y1="145" x2="262" y2="145" stroke="#b8996a" stroke-width="2"/>
+            <rect x="100" y="40" width="300" height="90" fill="rgba(200,195,185,0.4)" stroke="#b8b2a8" stroke-width="0.5"/>
+            <text x="250" y="360" text-anchor="middle" font-family="Cormorant Garamond, serif" font-size="11" fill="#8a7a6a" letter-spacing="3">MASTER BATH · RENDER 01</text>
+          </svg>
+        </div>
+        <div class="project-info">
+          <p class="tag">Residential · Hyderabad</p>
+          <h3>Jubilee Hills Penthouse</h3>
+          <p>A sky-high penthouse with a double-height living room, a freestanding stone bath, and a rooftop garden dining pavilion.</p>
+          <div class="project-meta">
+            <div class="meta-item">Area<strong>5,200 sq.ft</strong></div>
+            <div class="meta-item">Type<strong>Turnkey</strong></div>
+            <div class="meta-item">Tier<strong>Ultra Luxury</strong></div>
+          </div>
+        </div>
+      </div>
+
+      <!-- PROJECT 6 -->
+      <div class="project-card" onclick="openProject(5)">
+        <div class="project-render">
+          <svg viewBox="0 0 500 375" xmlns="http://www.w3.org/2000/svg" width="100%" height="100%">
+            <rect width="500" height="375" fill="#e8e3d8"/>
+            <rect x="0" y="255" width="500" height="120" fill="#cdc7bc"/>
+            <rect x="100" y="195" width="300" height="60" fill="#a09278" rx="1"/>
+            <rect x="75" y="190" width="30" height="65" fill="#8a8278" rx="1"/>
+            <rect x="120" y="175" width="30" height="25" fill="#8a8278" rx="1"/>
+            <rect x="190" y="175" width="30" height="25" fill="#8a8278" rx="1"/>
+            <rect x="280" y="175" width="30" height="25" fill="#8a8278" rx="1"/>
+            <rect x="350" y="175" width="30" height="25" fill="#8a8278" rx="1"/>
+            <rect x="395" y="190" width="30" height="65" fill="#8a8278" rx="1"/>
+            <rect x="120" y="255" width="30" height="25" fill="#8a8278" rx="1"/>
+            <rect x="190" y="255" width="30" height="25" fill="#8a8278" rx="1"/>
+            <rect x="280" y="255" width="30" height="25" fill="#8a8278" rx="1"/>
+            <rect x="350" y="255" width="30" height="25" fill="#8a8278" rx="1"/>
+            <line x1="250" y1="30" x2="250" y2="170" stroke="#c8b89a" stroke-width="1"/>
+            <ellipse cx="250" cy="170" rx="40" ry="12" fill="none" stroke="#b8996a" stroke-width="1.5"/>
+            <ellipse cx="250" cy="170" rx="30" ry="8" fill="rgba(200,184,154,0.3)"/>
+            <rect x="30" y="60" width="80" height="100" fill="none" stroke="#c8c0b5" stroke-width="0.5"/>
+            <rect x="390" y="60" width="80" height="100" fill="none" stroke="#c8c0b5" stroke-width="0.5"/>
+            <text x="250" y="358" text-anchor="middle" font-family="Cormorant Garamond, serif" font-size="11" fill="#8a7a6a" letter-spacing="3">DINING · RENDER 01</text>
+          </svg>
+        </div>
+        <div class="project-info">
+          <p class="tag">Residential · Pune</p>
+          <h3>Koregaon Park Residence</h3>
+          <p>An 1860s heritage bungalow lovingly restored — original Mangalore tile roof preserved, interiors entirely reimagined in a palette of putty and aged brass.</p>
+          <div class="project-meta">
+            <div class="meta-item">Area<strong>3,100 sq.ft</strong></div>
+            <div class="meta-item">Type<strong>Civil + Interior</strong></div>
+            <div class="meta-item">Tier<strong>Luxury</strong></div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+    <div class="projects-coming">
+      <h3>More works — coming soon.</h3>
+      <div class="coming-list">
+        <span class="coming-pill">The Malabar Hill Studio · Mumbai</span>
+        <span class="coming-pill">Golf Links Bungalow · Delhi</span>
+        <span class="coming-pill">Whitefield Tech Campus · Bangalore</span>
+        <span class="coming-pill">Mehrauli Heritage Home · Delhi</span>
+        <span class="coming-pill">Marine Drive Flat · Mumbai</span>
+        <span class="coming-pill">Banjara Hills Villa · Hyderabad</span>
+        <span class="coming-pill">Civil Lines Residence · Jaipur</span>
+        <span class="coming-pill">Alipore Colonial House · Kolkata</span>
+        <span class="coming-pill">Auroville Weekend Retreat · Pondicherry</span>
+        <span class="coming-pill">Worli Sea-Face Duplex · Mumbai</span>
+      </div>
+    </div>
+
+  </section>
+</div>
+
+<!-- ═══════════════ TURNKEY ═══════════════ -->
+<div id="page-turnkey" class="page">
+
+  <div class="turnkey-hero">
+    <p class="section-label">End-to-End Delivery</p>
+    <h2 class="section-title">One vision.<br><em style="font-style:italic;color:var(--gold);">One point of contact.</em><br>Complete result.</h2>
+    <p>A turnkey project means you hand over a brief and receive a finished, furnished, move-in-ready space. Nothing falls through the cracks because everything is our responsibility.</p>
+  </div>
+
+  <div class="turnkey-steps">
+    <div class="step-card">
+      <div class="step-num">01</div>
+      <h4>Brief & Vision</h4>
+      <p>We deep-dive into your lifestyle, aspirations, and budget. We ask questions architects ask, not just designers.</p>
+    </div>
+    <div class="step-card">
+      <div class="step-num">02</div>
+      <h4>Design Development</h4>
+      <p>Concept boards, 3D renders, material palettes, and working drawings — all approved before a single nail is driven.</p>
+    </div>
+    <div class="step-card">
+      <div class="step-num">03</div>
+      <h4>Civil & Structure</h4>
+      <p>Licensed contractors under our supervision handle demolition, brick work, slab, plumbing, and electrics.</p>
+    </div>
+    <div class="step-card">
+      <div class="step-num">04</div>
+      <h4>Interior Fitout</h4>
+      <p>False ceilings, wall panelling, custom joinery, flooring, lighting, paint, and every surface treated.</p>
+    </div>
+    <div class="step-card">
+      <div class="step-num">05</div>
+      <h4>Furnish & Style</h4>
+      <p>Furniture sourcing, artwork curation, soft furnishings, plants — we hand over a home, not a shell.</p>
+    </div>
+  </div>
+
+  <div class="turnkey-why">
+    <div>
+      <p class="section-label">Why choose turnkey</p>
+      <h2 class="section-title" style="font-size:clamp(28px,3vw,44px);">Why should you give<br>us complete control?</h2>
+      <div class="divider"></div>
+      <p style="font-size:13.5px;color:var(--text-mid);line-height:1.9;max-width:420px;">Because managing a construction site while living your life is one of the most exhausting things a person can do. Coordinating 12 different contractors who don't talk to each other — it always leads to delays, cost overruns, and regret.</p>
+      <p style="font-size:13.5px;color:var(--text-mid);line-height:1.9;max-width:420px;margin-top:1rem;">When you hand us the keys, you get one phone number, one timeline, one budget — and accountability for all of it.</p>
+      <div style="margin-top:2.5rem;">
+        <a class="btn btn-gold" onclick="showPage('query')">Start a Turnkey Project</a>
+      </div>
+    </div>
+    <ul class="why-list">
+      <li>
+        <svg width="18" height="18" viewBox="0 0 18 18" fill="none"><circle cx="9" cy="9" r="8.5" stroke="#b8996a"/><path d="M5 9l3 3 5-5" stroke="#b8996a" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        <div><strong style="font-weight:400;display:block;margin-bottom:3px;color:var(--text-dark);font-size:13.5px;">Single point of accountability</strong>One team, one contract. No finger-pointing between trades.</div>
+      </li>
+      <li>
+        <svg width="18" height="18" viewBox="0 0 18 18" fill="none"><circle cx="9" cy="9" r="8.5" stroke="#b8996a"/><path d="M5 9l3 3 5-5" stroke="#b8996a" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        <div><strong style="font-weight:400;display:block;margin-bottom:3px;color:var(--text-dark);font-size:13.5px;">Fixed-price contracts</strong>We lock the budget upfront. No surprise invoices mid-construction.</div>
+      </li>
+      <li>
+        <svg width="18" height="18" viewBox="0 0 18 18" fill="none"><circle cx="9" cy="9" r="8.5" stroke="#b8996a"/><path d="M5 9l3 3 5-5" stroke="#b8996a" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        <div><strong style="font-weight:400;display:block;margin-bottom:3px;color:var(--text-dark);font-size:13.5px;">Vendor relationships</strong>12 years of trusted craftsmen, stone suppliers, and furniture makers pass savings on to you.</div>
+      </li>
+      <li>
+        <svg width="18" height="18" viewBox="0 0 18 18" fill="none"><circle cx="9" cy="9" r="8.5" stroke="#b8996a"/><path d="M5 9l3 3 5-5" stroke="#b8996a" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        <div><strong style="font-weight:400;display:block;margin-bottom:3px;color:var(--text-dark);font-size:13.5px;">Guaranteed timeline</strong>Penalty clauses built into every turnkey contract. We are incentivized to finish on time.</div>
+      </li>
+      <li>
+        <svg width="18" height="18" viewBox="0 0 18 18" fill="none"><circle cx="9" cy="9" r="8.5" stroke="#b8996a"/><path d="M5 9l3 3 5-5" stroke="#b8996a" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        <div><strong style="font-weight:400;display:block;margin-bottom:3px;color:var(--text-dark);font-size:13.5px;">Zero coordination burden on you</strong>You attend two design reviews. We handle the rest — including site visits and punch lists.</div>
+      </li>
+      <li>
+        <svg width="18" height="18" viewBox="0 0 18 18" fill="none"><circle cx="9" cy="9" r="8.5" stroke="#b8996a"/><path d="M5 9l3 3 5-5" stroke="#b8996a" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        <div><strong style="font-weight:400;display:block;margin-bottom:3px;color:var(--text-dark);font-size:13.5px;">Cohesive outcome</strong>When one team designs and builds everything, the result is seamless. Design integrity never gets lost in translation.</div>
+      </li>
+    </ul>
+  </div>
+
+</div>
+
+<!-- ═══════════════ QUOTATION ═══════════════ -->
+<div id="page-quotation" class="page">
+  <div class="quote-wrap">
+    <div class="progress-bar"><div class="progress-fill" id="qProgress" style="width:20%"></div></div>
+
+    <div class="quote-step active" id="qStep1">
+      <p class="section-label">Step 1 of 5</p>
+      <h2>Which city is<br>your project in?</h2>
+      <p class="sub">Costs vary significantly across India. We'll calibrate everything to your market.</p>
+      <div class="q-grid q-grid-3">
+        <div class="q-option" onclick="selectOption(this,'city','Mumbai')"><div class="opt-label">Tier 1</div><div class="opt-title">Mumbai</div><div class="opt-desc">Including Thane, Navi Mumbai, Pune</div></div>
+        <div class="q-option" onclick="selectOption(this,'city','Delhi NCR')"><div class="opt-label">Tier 1</div><div class="opt-title">Delhi NCR</div><div class="opt-desc">Delhi, Gurgaon, Noida, Faridabad</div></div>
+        <div class="q-option" onclick="selectOption(this,'city','Bangalore')"><div class="opt-label">Tier 1</div><div class="opt-title">Bangalore</div><div class="opt-desc">Including Whitefield, Electronic City</div></div>
+        <div class="q-option" onclick="selectOption(this,'city','Hyderabad')"><div class="opt-label">Tier 1</div><div class="opt-title">Hyderabad</div><div class="opt-desc">Jubilee Hills, Banjara Hills, HITEC</div></div>
+        <div class="q-option" onclick="selectOption(this,'city','Chennai')"><div class="opt-label">Tier 1</div><div class="opt-title">Chennai</div><div class="opt-desc">Including Adyar, Anna Nagar</div></div>
+        <div class="q-option" onclick="selectOption(this,'city','Ahmedabad')"><div class="opt-label">Tier 2</div><div class="opt-title">Ahmedabad</div><div class="opt-desc">Including Surat, Vadodara</div></div>
+        <div class="q-option" onclick="selectOption(this,'city','Jaipur')"><div class="opt-label">Tier 2</div><div class="opt-title">Jaipur</div><div class="opt-desc">Including Jodhpur, Udaipur</div></div>
+        <div class="q-option" onclick="selectOption(this,'city','Kolkata')"><div class="opt-label">Tier 2</div><div class="opt-title">Kolkata</div><div class="opt-desc">Including Salt Lake, New Town</div></div>
+        <div class="q-option" onclick="selectOption(this,'city','Other City')"><div class="opt-label">Other</div><div class="opt-title">Other City</div><div class="opt-desc">Chandigarh, Lucknow, Indore & more</div></div>
+      </div>
+      <div class="q-nav">
+        <a class="btn" onclick="nextStep(2)">Continue →</a>
+      </div>
+    </div>
+
+    <div class="quote-step" id="qStep2">
+      <p class="section-label">Step 2 of 5</p>
+      <h2>What is the built-up<br>area of your space?</h2>
+      <p class="sub">Enter your carpet or built-up area in square feet. Approximate is fine.</p>
+      <div class="q-grid" style="max-width:380px;gap:1.5rem;">
+        <div class="q-field">
+          <label>Built-up area (sq.ft)</label>
+          <input type="number" id="areaInput" placeholder="e.g. 2000" min="200" max="50000"/>
+        </div>
+        <div class="q-field">
+          <label>Property type</label>
+          <select id="propType">
+            <option value="">Select type</option>
+            <option value="apartment">Apartment / Flat</option>
+            <option value="villa">Independent Villa / Bungalow</option>
+            <option value="rowhouse">Row House / Duplex</option>
+            <option value="penthouse">Penthouse</option>
+            <option value="commercial">Commercial Space</option>
+          </select>
+        </div>
+      </div>
+      <div class="q-nav">
+        <button class="q-back" onclick="nextStep(1)">← Back</button>
+        <a class="btn" onclick="nextStep(3)">Continue →</a>
+      </div>
+    </div>
+
+    <div class="quote-step" id="qStep3">
+      <p class="section-label">Step 3 of 5</p>
+      <h2>What work scope<br>do you need?</h2>
+      <p class="sub">You can combine civil and interior, or choose just one.</p>
+      <div class="q-grid q-grid-3">
+        <div class="q-option" onclick="selectOption(this,'scope','civil')">
+          <div class="opt-label">Construction</div><div class="opt-title">Civil Only</div>
+          <div class="opt-desc">Structural work, plumbing, electrics, flooring — without interior design.</div>
+        </div>
+        <div class="q-option" onclick="selectOption(this,'scope','interior')">
+          <div class="opt-label">Design</div><div class="opt-title">Interior Only</div>
+          <div class="opt-desc">Joinery, ceilings, walls, finishes, lighting, furniture — in a ready structure.</div>
+        </div>
+        <div class="q-option" onclick="selectOption(this,'scope','both')">
+          <div class="opt-label">Turnkey</div><div class="opt-title">Civil + Interior</div>
+          <div class="opt-desc">Complete end-to-end design-build. One team, one contract, one vision.</div>
+        </div>
+      </div>
+      <div class="q-nav">
+        <button class="q-back" onclick="nextStep(2)">← Back</button>
+        <a class="btn" onclick="nextStep(4)">Continue →</a>
+      </div>
+    </div>
+
+    <div class="quote-step" id="qStep4">
+      <p class="section-label">Step 4 of 5</p>
+      <h2>What quality tier<br>are you aiming for?</h2>
+      <p class="sub">This calibrates material quality, brand specifications, and finishing standards.</p>
+      <div class="q-grid q-grid-3">
+        <div class="q-option" onclick="selectOption(this,'tier','premium')">
+          <div class="opt-label">Entry Luxury</div><div class="opt-title">Premium</div>
+          <div class="opt-desc">Quality branded materials, clean design, solid execution. No compromise on the fundamentals.</div>
+        </div>
+        <div class="q-option" onclick="selectOption(this,'tier','luxury')">
+          <div class="opt-label">Mid Luxury</div><div class="opt-title">Luxury</div>
+          <div class="opt-desc">Custom joinery, imported stone, Italian tiles, designer lighting. This is our sweet spot.</div>
+        </div>
+        <div class="q-option" onclick="selectOption(this,'tier','ultra')">
+          <div class="opt-label">Top Tier</div><div class="opt-title">Ultra Luxury</div>
+          <div class="opt-desc">Fully bespoke. Artisan craftsmanship, curated global materials, no limits on detail.</div>
+        </div>
+      </div>
+      <div class="q-nav">
+        <button class="q-back" onclick="nextStep(3)">← Back</button>
+        <a class="btn" onclick="calculateQuote()">Generate Estimate →</a>
+      </div>
+    </div>
+
+    <div class="quote-step" id="qStep5">
+      <p class="section-label">Your Estimate</p>
+      <h2 id="resultTitle">Your estimate</h2>
+      <p class="sub" id="resultSub"></p>
+      <div class="result-grid" id="resultGrid"></div>
+      <div class="blur-card">
+        <div class="blur-inner">
+          <p style="font-family:'Cormorant Garamond',serif;font-size:22px;margin-bottom:1rem;">Detailed Line-Item Schedule</p>
+          <p style="font-size:13px;color:var(--text-mid);">₹4,80,000 — False ceiling (gypsum + wood reveal)<br>₹3,20,000 — Wall panelling (fluted teak)<br>₹6,10,000 — Modular kitchen (Hafele hardware)<br>₹5,40,000 — Master bath fitout (Gessi fixtures)</p>
+        </div>
+        <div class="blur-overlay">
+          <p style="font-family:'Cormorant Garamond',serif;font-size:20px;color:var(--text-dark);">Detailed breakdown available on request</p>
+          <p>Our team will share a room-by-room schedule with specifications during the consultation call.</p>
+          <a class="btn btn-gold" onclick="showPage('query')">Schedule Consultation →</a>
+        </div>
+      </div>
+      <div class="q-nav" style="margin-top:2rem;">
+        <button class="q-back" onclick="resetQuote()">← Start Over</button>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<!-- ═══════════════ QUERY ═══════════════ -->
+<div id="page-query" class="page">
+  <div class="query-wrap">
+    <p class="section-label">Get in Touch</p>
+    <h2 class="section-title" style="font-size:clamp(32px,4vw,52px);">Let's begin<br>your project.</h2>
+    <div class="divider"></div>
+    <p style="font-size:13.5px;color:var(--text-mid);margin-bottom:3rem;line-height:1.9;">Tell us about your project. We respond to every serious inquiry within 24 hours, and we always begin with a complimentary 30-minute consultation call.</p>
+
+    <div id="queryForm">
+      <div class="form-row">
+        <div class="form-field"><label>Your Name</label><input type="text" placeholder="Full name"/></div>
+        <div class="form-field"><label>Phone Number</label><input type="tel" placeholder="+91 XXXXX XXXXX"/></div>
+      </div>
+      <div class="form-row">
+        <div class="form-field"><label>Email Address</label><input type="email" placeholder="you@email.com"/></div>
+        <div class="form-field"><label>City</label><input type="text" placeholder="City where project is located"/></div>
+      </div>
+      <div class="form-row">
+        <div class="form-field"><label>Project Type</label>
+          <select>
+            <option value="">Select scope</option>
+            <option>Interior Design Only</option>
+            <option>Civil Construction Only</option>
+            <option>Civil + Interior (Turnkey)</option>
+            <option>Commercial Space</option>
+            <option>Heritage / Restoration</option>
+          </select>
+        </div>
+        <div class="form-field"><label>Approximate Area (sq.ft)</label><input type="number" placeholder="e.g. 2500"/></div>
+      </div>
+      <div class="form-field" style="margin-bottom:1.5rem;">
+        <label>Tell us about your vision</label>
+        <textarea rows="5" placeholder="Describe the space, what you're hoping to achieve, any reference styles you love, your timeline, or anything else that helps us understand your project..."></textarea>
+      </div>
+      <div class="form-field" style="margin-bottom:2.5rem;">
+        <label>How did you hear about us?</label>
+        <select>
+          <option value="">Select</option>
+          <option>Word of mouth</option>
+          <option>Instagram</option>
+          <option>Houzz / Architectural Digest</option>
+          <option>Google Search</option>
+          <option>Past client referral</option>
+          <option>Other</option>
+        </select>
+      </div>
+      <a class="btn" onclick="submitQuery()">Submit Inquiry →</a>
+    </div>
+
+    <div class="success-msg" id="successMsg">
+      <div class="big">Thank you.</div>
+      <p>Your inquiry has been received. Our principal designer will be in touch within 24 hours to schedule a complimentary consultation call.</p>
+      <p style="margin-top:1rem;font-size:12px;color:var(--text-light);">Please check your inbox (and spam folder).</p>
+    </div>
+  </div>
+</div>
+
+<!-- ═══════════════ FOOTER ═══════════════ -->
+<footer>
+  <div>
+    <div onclick="showPage('home')" style="cursor:pointer;margin-bottom:1rem;">
+      <svg viewBox="0 0 310 34" xmlns="http://www.w3.org/2000/svg" height="28">
+        <line x1="0" y1="9" x2="310" y2="9" stroke="#1a1916" stroke-width="1"/>
+        <path d="M 0,9 A 12,12 0 0 1 24,9" fill="none" stroke="#1a1916" stroke-width="1" stroke-linecap="round"/>
+        <circle cx="310" cy="3" r="3" fill="#b8996a"/>
+        <text x="4" y="24" font-family="'Cormorant Garamond', serif" font-weight="400" font-size="16" letter-spacing="3" fill="#1a1916">KALA SETU</text>
+        <text x="136" y="24" font-family="'Cormorant Garamond', serif" font-weight="300" font-size="16" letter-spacing="2.5" fill="#b8996a" font-style="italic">DESIGN STUDIO</text>
+        <line x1="0" y1="30" x2="310" y2="30" stroke="#1a1916" stroke-width="0.3"/>
+      </svg>
+    </div>
+    <p>Crafting considered spaces across India. Residential, commercial, and turnkey interior architecture.</p>
+    <p style="margin-top:1rem;">© 2025 Kala Setu Design Studio. All rights reserved.</p>
+  </div>
+  <div>
+    <h4>Navigate</h4>
+    <a onclick="showPage('home')" style="cursor:pointer">Home</a>
+    <a onclick="showPage('about')" style="cursor:pointer">About</a>
+    <a onclick="showPage('projects')" style="cursor:pointer">Projects</a>
+    <a onclick="showPage('turnkey')" style="cursor:pointer">Turnkey</a>
+    <a onclick="showPage('quotation')" style="cursor:pointer">Quotation</a>
+    <a onclick="showPage('query')" style="cursor:pointer">Query</a>
+  </div>
+  <div>
+    <h4>Services</h4>
+    <a>Residential Design</a>
+    <a>Commercial Spaces</a>
+    <a>Civil Construction</a>
+    <a>Turnkey Projects</a>
+    <a>Heritage Restoration</a>
+  </div>
+  <div>
+    <h4>Contact</h4>
+    <a>hello@kalasetu.in</a>
+    <a>+91 98765 43210</a>
+    <a>Jodhpur · Mumbai · Delhi</a>
+  </div>
+</footer>
+
+<!-- PROJECT MODAL -->
+<div class="modal-overlay" id="projectModal">
+  <div class="modal-box">
+    <button class="modal-close" onclick="closeModal()">×</button>
+    <div class="modal-render" id="modalRender"></div>
+    <div class="modal-content">
+      <p class="tag" id="modalTag"></p>
+      <h2 id="modalTitle"></h2>
+      <div class="modal-specs" id="modalSpecs"></div>
+      <p class="desc" id="modalDesc"></p>
+      <div class="plan-grid" id="modalPlans"></div>
+    </div>
+  </div>
+</div>
+
+<script>
+const projects = [
+  {
+    title: "The Juhu Retreat",
+    tag: "Residential · Mumbai",
+    area: "2,200 sq.ft", type: "Interior Only", tier: "Ultra Luxury", duration: "6 months",
+    desc: "A seafront 3BHK in Juhu transformed through a palette of warm limestone, oiled teak, and bleached linen. The client wanted the ocean brought inside — achieved through a continuous sightline from entry to balcony, uninterrupted by walls. Custom hand-woven jute screens act as dividers. The master bath features a freestanding Sivakasi marble tub overlooking the sea.",
+    color: "#ede9e0",
+    // 4 plan/render SVGs for modal
+    plans: [
+      {
+        label: "Floor Plan",
+        svg: `<svg viewBox="0 0 320 320" xmlns="http://www.w3.org/2000/svg" width="100%" height="100%">
+          <rect width="320" height="320" fill="#f2efe9"/>
+          <defs><pattern id="g0" width="16" height="16" patternUnits="userSpaceOnUse"><path d="M 16 0 L 0 0 0 16" fill="none" stroke="#e5e1d8" stroke-width="0.4"/></pattern></defs>
+          <rect width="320" height="320" fill="url(#g0)"/>
+          <rect x="20" y="20" width="280" height="280" fill="none" stroke="#1a1916" stroke-width="2.5"/>
+          <!-- Living 28x20 -->
+          <rect x="20" y="20" width="160" height="120" fill="rgba(200,184,154,0.15)" stroke="#1a1916" stroke-width="1.2"/>
+          <text x="100" y="82" text-anchor="middle" font-family="Cormorant Garamond,serif" font-size="9" fill="#8a7a6a" letter-spacing="1.5">LIVING · DINING</text>
+          <text x="100" y="95" text-anchor="middle" font-family="Jost,sans-serif" font-size="7" fill="#c8b89a" letter-spacing="1">32 SQ.M</text>
+          <!-- Master -->
+          <rect x="180" y="20" width="120" height="110" fill="rgba(200,184,154,0.1)" stroke="#1a1916" stroke-width="1.2"/>
+          <text x="240" y="78" text-anchor="middle" font-family="Cormorant Garamond,serif" font-size="9" fill="#8a7a6a" letter-spacing="1.5">MASTER</text>
+          <text x="240" y="91" text-anchor="middle" font-family="Jost,sans-serif" font-size="7" fill="#c8b89a" letter-spacing="1">20 SQ.M</text>
+          <!-- Bed 2 -->
+          <rect x="180" y="130" width="70" height="80" fill="rgba(200,184,154,0.1)" stroke="#1a1916" stroke-width="1.2"/>
+          <text x="215" y="175" text-anchor="middle" font-family="Cormorant Garamond,serif" font-size="8" fill="#8a7a6a" letter-spacing="1">BED 2</text>
+          <!-- Bath -->
+          <rect x="250" y="130" width="50" height="80" fill="rgba(200,184,154,0.08)" stroke="#1a1916" stroke-width="1.2"/>
+          <text x="275" y="175" text-anchor="middle" font-family="Cormorant Garamond,serif" font-size="8" fill="#8a7a6a">BATH</text>
+          <!-- Kitchen -->
+          <rect x="20" y="140" width="100" height="80" fill="rgba(200,184,154,0.12)" stroke="#1a1916" stroke-width="1.2"/>
+          <text x="70" y="183" text-anchor="middle" font-family="Cormorant Garamond,serif" font-size="8" fill="#8a7a6a" letter-spacing="1">KITCHEN</text>
+          <!-- Passage -->
+          <rect x="120" y="140" width="60" height="80" fill="rgba(200,184,154,0.06)" stroke="#1a1916" stroke-width="1.2"/>
+          <text x="150" y="183" text-anchor="middle" font-family="Cormorant Garamond,serif" font-size="7" fill="#c8b89a">FOYER</text>
+          <!-- Balcony -->
+          <rect x="20" y="220" width="280" height="80" fill="rgba(184,153,106,0.08)" stroke="#1a1916" stroke-width="1.2" stroke-dasharray="6,3"/>
+          <text x="160" y="265" text-anchor="middle" font-family="Cormorant Garamond,serif" font-size="9" fill="#8a7a6a" letter-spacing="2">BALCONY · SEA VIEW</text>
+          <!-- North -->
+          <circle cx="298" cy="36" r="8" fill="none" stroke="#c8b89a" stroke-width="0.6"/>
+          <text x="298" y="38" text-anchor="middle" font-family="Jost,sans-serif" font-size="7" fill="#c8b89a">N</text>
+          <!-- Scale -->
+          <line x1="20" y1="312" x2="60" y2="312" stroke="#c8b89a" stroke-width="0.6"/>
+          <text x="40" y="308" text-anchor="middle" font-family="Jost,sans-serif" font-size="6" fill="#c8b89a">3M</text>
+        </svg>`
+      },
+      {
+        label: "Living + Dining Render",
+        svg: `<svg viewBox="0 0 320 320" xmlns="http://www.w3.org/2000/svg" width="100%" height="100%">
+          <rect width="320" height="320" fill="#ede9e0"/>
+          <!-- Floor -->
+          <rect x="0" y="220" width="320" height="100" fill="#d4cfc4"/>
+          <!-- Limestone tile lines -->
+          <line x1="0" y1="260" x2="320" y2="260" stroke="#c8c2b8" stroke-width="0.8"/>
+          <line x1="106" y1="220" x2="106" y2="320" stroke="#c8c2b8" stroke-width="0.8"/>
+          <line x1="213" y1="220" x2="213" y2="320" stroke="#c8c2b8" stroke-width="0.8"/>
+          <!-- Teak wall panels vertical -->
+          <rect x="0" y="20" width="16" height="200" fill="#b8a888"/>
+          <rect x="20" y="20" width="16" height="200" fill="#c0b094"/>
+          <rect x="40" y="20" width="16" height="200" fill="#b8a888"/>
+          <rect x="56" y="20" width="16" height="200" fill="#c0b094"/>
+          <rect x="72" y="20" width="2" height="200" fill="#8a7a5a"/>
+          <!-- Large ocean window -->
+          <rect x="80" y="10" width="180" height="210" fill="rgba(190,220,240,0.35)" stroke="#d0ccbf" stroke-width="1"/>
+          <line x1="170" y1="10" x2="170" y2="220" stroke="#d0ccbf" stroke-width="0.8"/>
+          <!-- Ocean horizon suggestion -->
+          <rect x="80" y="120" width="180" height="2" fill="rgba(150,190,220,0.4)"/>
+          <!-- Jute screen divider -->
+          <rect x="268" y="20" width="8" height="200" fill="#c8b89a" opacity="0.7"/>
+          <line x1="268" y1="50" x2="276" y2="50" stroke="#b8a880" stroke-width="0.5"/>
+          <line x1="268" y1="80" x2="276" y2="80" stroke="#b8a880" stroke-width="0.5"/>
+          <line x1="268" y1="110" x2="276" y2="110" stroke="#b8a880" stroke-width="0.5"/>
+          <line x1="268" y1="140" x2="276" y2="140" stroke="#b8a880" stroke-width="0.5"/>
+          <line x1="268" y1="170" x2="276" y2="170" stroke="#b8a880" stroke-width="0.5"/>
+          <!-- Sofa -->
+          <rect x="60" y="175" width="200" height="45" fill="#b8b0a3" rx="3"/>
+          <rect x="60" y="158" width="200" height="22" fill="#c4bdb5" rx="3"/>
+          <!-- Coffee table — travertine -->
+          <rect x="120" y="215" width="100" height="30" fill="#c8c0b4" rx="1"/>
+          <line x1="130" y1="230" x2="210" y2="230" stroke="#b8b0a4" stroke-width="0.5"/>
+          <!-- Floor lamp -->
+          <line x1="40" y1="155" x2="40" y2="220" stroke="#9a8870" stroke-width="2"/>
+          <ellipse cx="40" cy="152" rx="18" ry="6" fill="#e8dccc" stroke="#c8b89a" stroke-width="1"/>
+          <!-- Label -->
+          <text x="160" y="312" text-anchor="middle" font-family="Cormorant Garamond,serif" font-size="9" fill="#8a7a6a" letter-spacing="2">LIVING · OCEAN VIEW RENDER</text>
+        </svg>`
+      },
+      {
+        label: "Master Bath Render",
+        svg: `<svg viewBox="0 0 320 320" xmlns="http://www.w3.org/2000/svg" width="100%" height="100%">
+          <rect width="320" height="320" fill="#e8e4dc"/>
+          <!-- Marble tile floor -->
+          <rect x="0" y="230" width="320" height="90" fill="#d0ccc4"/>
+          <line x1="0" y1="275" x2="320" y2="275" stroke="#c4c0b8" stroke-width="0.8"/>
+          <line x1="106" y1="230" x2="106" y2="320" stroke="#c4c0b8" stroke-width="0.6"/>
+          <line x1="213" y1="230" x2="213" y2="320" stroke="#c4c0b8" stroke-width="0.6"/>
+          <!-- Wall large format slabs -->
+          <rect x="0" y="0" width="320" height="230" fill="#dedad4"/>
+          <line x1="0" y1="115" x2="320" y2="115" stroke="#ccc8c0" stroke-width="0.8"/>
+          <line x1="160" y1="0" x2="160" y2="230" stroke="#ccc8c0" stroke-width="0.6"/>
+          <!-- Window sea view -->
+          <rect x="60" y="20" width="200" height="110" fill="rgba(190,220,240,0.4)" stroke="#c8c4bc" stroke-width="0.8"/>
+          <line x1="160" y1="20" x2="160" y2="130" stroke="#c8c4bc" stroke-width="0.6"/>
+          <!-- Sivakasi marble tub freestanding -->
+          <ellipse cx="160" cy="195" rx="95" ry="38" fill="#c8c4bc" stroke="#b0aba0" stroke-width="1.2"/>
+          <ellipse cx="160" cy="195" rx="80" ry="28" fill="#d8d4cc"/>
+          <!-- Gold faucet -->
+          <line x1="160" y1="158" x2="160" y2="140" stroke="#b8996a" stroke-width="3"/>
+          <line x1="148" y1="140" x2="172" y2="140" stroke="#b8996a" stroke-width="2"/>
+          <circle cx="160" cy="138" r="4" fill="#b8996a"/>
+          <!-- Floating vanity -->
+          <rect x="20" y="170" width="60" height="25" fill="#b8b2a8" rx="1"/>
+          <rect x="30" y="162" width="40" height="10" fill="#9e9890" rx="1"/>
+          <!-- Mirror -->
+          <rect x="20" y="40" width="60" height="80" fill="rgba(200,195,185,0.5)" stroke="#b8b2a8" stroke-width="0.8"/>
+          <!-- Label -->
+          <text x="160" y="312" text-anchor="middle" font-family="Cormorant Garamond,serif" font-size="9" fill="#8a7a6a" letter-spacing="2">MASTER BATH · MARBLE TUB</text>
+        </svg>`
+      },
+      {
+        label: "Kitchen Render",
+        svg: `<svg viewBox="0 0 320 320" xmlns="http://www.w3.org/2000/svg" width="100%" height="100%">
+          <rect width="320" height="320" fill="#ede8e0"/>
+          <!-- Floor -->
+          <rect x="0" y="228" width="320" height="92" fill="#cdc8be"/>
+          <line x1="0" y1="274" x2="320" y2="274" stroke="#c0bbb0" stroke-width="0.8"/>
+          <!-- Wall -->
+          <rect x="0" y="0" width="320" height="228" fill="#e4dfd8"/>
+          <!-- Upper cabinets oiled teak -->
+          <rect x="0" y="50" width="240" height="70" fill="#c0b094" stroke="#a89060" stroke-width="0.6"/>
+          <line x1="80" y1="50" x2="80" y2="120" stroke="#a89060" stroke-width="0.5"/>
+          <line x1="160" y1="50" x2="160" y2="120" stroke="#a89060" stroke-width="0.5"/>
+          <!-- Window -->
+          <rect x="248" y="30" width="72" height="100" fill="rgba(200,230,245,0.4)" stroke="#c8c4bc" stroke-width="0.8"/>
+          <line x1="284" y1="30" x2="284" y2="130" stroke="#c8c4bc" stroke-width="0.5"/>
+          <!-- Lower cabinets + counter -->
+          <rect x="0" y="178" width="320" height="50" fill="#b8ae9e"/>
+          <rect x="0" y="174" width="320" height="6" fill="#8a7355"/><!-- stone counter -->
+          <!-- Island -->
+          <rect x="80" y="218" width="160" height="50" fill="#b0a898" rx="1"/>
+          <rect x="80" y="214" width="160" height="6" fill="#9a8870"/>
+          <!-- Pendants -->
+          <line x1="140" y1="0" x2="140" y2="208" stroke="#c8b89a" stroke-width="1"/>
+          <circle cx="140" cy="210" r="10" fill="none" stroke="#b8996a" stroke-width="1.5"/>
+          <circle cx="140" cy="210" r="6" fill="rgba(200,184,154,0.4)"/>
+          <line x1="195" y1="0" x2="195" y2="208" stroke="#c8b89a" stroke-width="1"/>
+          <circle cx="195" cy="210" r="10" fill="none" stroke="#b8996a" stroke-width="1.5"/>
+          <circle cx="195" cy="210" r="6" fill="rgba(200,184,154,0.4)"/>
+          <!-- Label -->
+          <text x="160" y="312" text-anchor="middle" font-family="Cormorant Garamond,serif" font-size="9" fill="#8a7a6a" letter-spacing="2">KITCHEN · TEAK + STONE</text>
+        </svg>`
+      }
+    ]
+  },
+  {
+    title: "Vasant Vihar Villa",
+    tag: "Residential · Delhi",
+    area: "4,500 sq.ft", type: "Turnkey", tier: "Luxury", duration: "11 months",
+    desc: "A 1990s bungalow in Vasant Vihar entirely reimagined. The original structure was retained and reinforced; the interiors stripped to bare concrete and rebuilt. Raw concrete walls paired with aged brass fixtures, hand-knotted Jaipur rugs, and floor-to-ceiling walnut joinery. A new double-height library was added in the former garage.",
+    color: "#e8e2d9",
+    plans: [
+      {
+        label: "Ground Floor Plan",
+        svg: `<svg viewBox="0 0 320 320" xmlns="http://www.w3.org/2000/svg" width="100%" height="100%">
+          <rect width="320" height="320" fill="#f0ede8"/>
+          <defs><pattern id="g1" width="16" height="16" patternUnits="userSpaceOnUse"><path d="M 16 0 L 0 0 0 16" fill="none" stroke="#e0ddd6" stroke-width="0.4"/></pattern></defs>
+          <rect width="320" height="320" fill="url(#g1)"/>
+          <rect x="20" y="20" width="280" height="280" fill="none" stroke="#1a1916" stroke-width="2.5"/>
+          <!-- Entry -->
+          <rect x="20" y="20" width="60" height="50" fill="rgba(200,184,154,0.1)" stroke="#1a1916" stroke-width="1.2"/>
+          <text x="50" y="48" text-anchor="middle" font-family="Cormorant Garamond,serif" font-size="7" fill="#9e9c97" letter-spacing="1">ENTRY</text>
+          <!-- Living -->
+          <rect x="80" y="20" width="140" height="110" fill="rgba(200,184,154,0.18)" stroke="#1a1916" stroke-width="1.2"/>
+          <text x="150" y="78" text-anchor="middle" font-family="Cormorant Garamond,serif" font-size="9" fill="#8a7a6a" letter-spacing="1.5">LIVING</text>
+          <text x="150" y="91" text-anchor="middle" font-family="Jost,sans-serif" font-size="7" fill="#c8b89a" letter-spacing="1">40 SQ.M</text>
+          <!-- Dining -->
+          <rect x="220" y="20" width="80" height="110" fill="rgba(200,184,154,0.13)" stroke="#1a1916" stroke-width="1.2"/>
+          <text x="260" y="78" text-anchor="middle" font-family="Cormorant Garamond,serif" font-size="9" fill="#8a7a6a" letter-spacing="1.5">DINING</text>
+          <!-- Kitchen -->
+          <rect x="220" y="130" width="80" height="80" fill="rgba(200,184,154,0.12)" stroke="#1a1916" stroke-width="1.2"/>
+          <text x="260" y="174" text-anchor="middle" font-family="Cormorant Garamond,serif" font-size="8" fill="#8a7a6a">KITCHEN</text>
+          <!-- Library (new) -->
+          <rect x="20" y="70" width="60" height="140" fill="rgba(184,153,106,0.2)" stroke="#b8996a" stroke-width="1.2" stroke-dasharray="5,2"/>
+          <text x="50" y="142" text-anchor="middle" font-family="Cormorant Garamond,serif" font-size="8" fill="#b8996a" letter-spacing="1">LIB.</text>
+          <text x="50" y="154" text-anchor="middle" font-family="Jost,sans-serif" font-size="6" fill="#c8b89a">NEW</text>
+          <!-- Bed 1 -->
+          <rect x="20" y="210" width="100" height="90" fill="rgba(200,184,154,0.12)" stroke="#1a1916" stroke-width="1.2"/>
+          <text x="70" y="258" text-anchor="middle" font-family="Cormorant Garamond,serif" font-size="8" fill="#8a7a6a" letter-spacing="1">BED 1</text>
+          <!-- Bed 2 -->
+          <rect x="120" y="210" width="100" height="90" fill="rgba(200,184,154,0.1)" stroke="#1a1916" stroke-width="1.2"/>
+          <text x="170" y="258" text-anchor="middle" font-family="Cormorant Garamond,serif" font-size="8" fill="#8a7a6a" letter-spacing="1">BED 2</text>
+          <!-- Bath -->
+          <rect x="220" y="210" width="80" height="90" fill="rgba(200,184,154,0.08)" stroke="#1a1916" stroke-width="1.2"/>
+          <text x="260" y="258" text-anchor="middle" font-family="Cormorant Garamond,serif" font-size="8" fill="#8a7a6a">BATH</text>
+          <circle cx="298" cy="36" r="8" fill="none" stroke="#c8b89a" stroke-width="0.6"/>
+          <text x="298" y="39" text-anchor="middle" font-family="Jost,sans-serif" font-size="7" fill="#c8b89a">N</text>
+        </svg>`
+      },
+      {
+        label: "Library Render",
+        svg: `<svg viewBox="0 0 320 320" xmlns="http://www.w3.org/2000/svg" width="100%" height="100%">
+          <rect width="320" height="320" fill="#e8e3db"/>
+          <!-- Concrete floor -->
+          <rect x="0" y="240" width="320" height="80" fill="#c8c4bc"/>
+          <line x1="0" y1="275" x2="320" y2="275" stroke="#beb9b0" stroke-width="0.6"/>
+          <!-- Double height - concrete ceiling suggestion -->
+          <rect x="0" y="0" width="320" height="20" fill="#d0ccc4"/>
+          <!-- Raw concrete walls -->
+          <rect x="0" y="20" width="320" height="220" fill="#dbd8d2"/>
+          <!-- Concrete texture lines -->
+          <line x1="0" y1="90" x2="320" y2="90" stroke="#ccc8c2" stroke-width="0.4"/>
+          <line x1="0" y1="160" x2="320" y2="160" stroke="#ccc8c2" stroke-width="0.4"/>
+          <!-- Walnut bookshelves floor-to-ceiling -->
+          <rect x="0" y="20" width="60" height="220" fill="#9a8060"/>
+          <line x1="0" y1="73" x2="60" y2="73" stroke="#7a6040" stroke-width="0.8"/>
+          <line x1="0" y1="126" x2="60" y2="126" stroke="#7a6040" stroke-width="0.8"/>
+          <line x1="0" y1="179" x2="60" y2="179" stroke="#7a6040" stroke-width="0.8"/>
+          <!-- book spines -->
+          <rect x="5" y="82" width="8" height="38" fill="#c8b89a" rx="1"/>
+          <rect x="16" y="86" width="6" height="34" fill="#8a7a5a" rx="1"/>
+          <rect x="25" y="80" width="9" height="40" fill="#b0a080" rx="1"/>
+          <rect x="37" y="84" width="7" height="36" fill="#d4c8a8" rx="1"/>
+          <rect x="47" y="88" width="8" height="32" fill="#9a8a6a" rx="1"/>
+          <rect x="5" y="135" width="8" height="38" fill="#b8a070" rx="1"/>
+          <rect x="16" y="138" width="6" height="34" fill="#c8b890" rx="1"/>
+          <rect x="25" y="132" width="9" height="40" fill="#8a7a5a" rx="1"/>
+          <rect x="37" y="136" width="7" height="36" fill="#a89060" rx="1"/>
+          <!-- Right shelves -->
+          <rect x="260" y="20" width="60" height="220" fill="#9a8060"/>
+          <line x1="260" y1="73" x2="320" y2="73" stroke="#7a6040" stroke-width="0.8"/>
+          <line x1="260" y1="126" x2="320" y2="126" stroke="#7a6040" stroke-width="0.8"/>
+          <line x1="260" y1="179" x2="320" y2="179" stroke="#7a6040" stroke-width="0.8"/>
+          <!-- Reading chair -->
+          <rect x="120" y="195" width="55" height="45" fill="#b8b0a3" rx="4"/>
+          <rect x="118" y="170" width="59" height="30" fill="#c4bdb5" rx="3"/>
+          <!-- Brass floor lamp -->
+          <line x1="200" y1="200" x2="200" y2="240" stroke="#b8996a" stroke-width="2.5"/>
+          <ellipse cx="200" cy="198" rx="16" ry="5" fill="#e8dccc" stroke="#c8b89a" stroke-width="1"/>
+          <!-- Skylight suggestion -->
+          <rect x="100" y="0" width="120" height="20" fill="rgba(220,235,250,0.5)" stroke="#c8c4bc" stroke-width="0.5"/>
+          <text x="160" y="312" text-anchor="middle" font-family="Cormorant Garamond,serif" font-size="9" fill="#8a7a6a" letter-spacing="2">DOUBLE-HEIGHT LIBRARY</text>
+        </svg>`
+      },
+      {
+        label: "Master Suite Render",
+        svg: `<svg viewBox="0 0 320 320" xmlns="http://www.w3.org/2000/svg" width="100%" height="100%">
+          <rect width="320" height="320" fill="#e4dfd8"/>
+          <rect x="0" y="240" width="320" height="80" fill="#ccc8be"/>
+          <!-- Jaipur rug on floor -->
+          <rect x="50" y="215" width="220" height="60" fill="rgba(184,153,106,0.2)" stroke="#b8996a" stroke-width="0.8" stroke-dasharray="3,2"/>
+          <!-- Concrete wall -->
+          <rect x="0" y="0" width="320" height="240" fill="#dbd7d0"/>
+          <line x1="0" y1="110" x2="320" y2="110" stroke="#cec9c2" stroke-width="0.5"/>
+          <!-- Walnut headboard -->
+          <rect x="60" y="90" width="200" height="55" fill="#9a8060" rx="2"/>
+          <line x1="160" y1="90" x2="160" y2="145" stroke="#7a6040" stroke-width="0.6"/>
+          <!-- Bed -->
+          <rect x="60" y="143" width="200" height="72" fill="#d0cbc0" rx="2"/>
+          <rect x="60" y="143" width="200" height="28" fill="#ddd8d0" rx="2"/>
+          <!-- Pillows -->
+          <rect x="70" y="148" width="55" height="18" fill="#e8e4dc" rx="2"/>
+          <rect x="135" y="148" width="55" height="18" fill="#e0dcd4" rx="2"/>
+          <rect x="200" y="148" width="50" height="18" fill="#e8e4dc" rx="2"/>
+          <!-- Nightstands -->
+          <rect x="20" y="160" width="38" height="40" fill="#b0a898" rx="1"/>
+          <rect x="262" y="160" width="38" height="40" fill="#b0a898" rx="1"/>
+          <!-- Brass pendants -->
+          <line x1="100" y1="0" x2="100" y2="138" stroke="#b8996a" stroke-width="1.5"/>
+          <ellipse cx="100" cy="140" rx="10" ry="3.5" fill="#c8b89a"/>
+          <line x1="220" y1="0" x2="220" y2="138" stroke="#b8996a" stroke-width="1.5"/>
+          <ellipse cx="220" cy="140" rx="10" ry="3.5" fill="#c8b89a"/>
+          <!-- Brass accent strip on headboard -->
+          <line x1="60" y1="105" x2="260" y2="105" stroke="#b8996a" stroke-width="1.5"/>
+          <!-- Window with curtain -->
+          <rect x="240" y="20" width="70" height="180" fill="rgba(210,225,240,0.3)" stroke="#ccc8c0" stroke-width="0.8"/>
+          <rect x="240" y="20" width="15" height="180" fill="rgba(184,153,106,0.25)"/>
+          <text x="160" y="312" text-anchor="middle" font-family="Cormorant Garamond,serif" font-size="9" fill="#8a7a6a" letter-spacing="2">MASTER SUITE · CONCRETE + BRASS</text>
+        </svg>`
+      },
+      {
+        label: "Dining Render",
+        svg: `<svg viewBox="0 0 320 320" xmlns="http://www.w3.org/2000/svg" width="100%" height="100%">
+          <rect width="320" height="320" fill="#e8e3da"/>
+          <rect x="0" y="248" width="320" height="72" fill="#cdc8be"/>
+          <!-- Herringbone pattern floor suggestion -->
+          <line x1="0" y1="285" x2="320" y2="285" stroke="#c0bbb0" stroke-width="0.6"/>
+          <rect x="0" y="20" width="320" height="228" fill="#e0dbd4"/>
+          <line x1="0" y1="120" x2="320" y2="120" stroke="#d4cfc8" stroke-width="0.5"/>
+          <!-- Dining table raw concrete top -->
+          <rect x="70" y="188" width="180" height="60" fill="#b0a898" rx="1"/>
+          <rect x="70" y="184" width="180" height="6" fill="#9e9890"/>
+          <!-- Chairs -->
+          <rect x="50" y="182" width="22" height="60" fill="#8a8278" rx="2"/>
+          <rect x="80" y="162" width="22" height="24" fill="#8a8278" rx="2"/>
+          <rect x="126" y="162" width="22" height="24" fill="#8a8278" rx="2"/>
+          <rect x="172" y="162" width="22" height="24" fill="#8a8278" rx="2"/>
+          <rect x="218" y="162" width="22" height="24" fill="#8a8278" rx="2"/>
+          <rect x="248" y="182" width="22" height="60" fill="#8a8278" rx="2"/>
+          <rect x="80" y="248" width="22" height="24" fill="#8a8278" rx="2"/>
+          <rect x="126" y="248" width="22" height="24" fill="#8a8278" rx="2"/>
+          <rect x="172" y="248" width="22" height="24" fill="#8a8278" rx="2"/>
+          <rect x="218" y="248" width="22" height="24" fill="#8a8278" rx="2"/>
+          <!-- Custom brass chandelier -->
+          <line x1="160" y1="0" x2="160" y2="155" stroke="#c8b89a" stroke-width="1.2"/>
+          <rect x="120" y="154" width="80" height="4" fill="#b8996a" rx="2"/>
+          <line x1="125" y1="158" x2="125" y2="172" stroke="#c8b89a" stroke-width="1"/>
+          <line x1="148" y1="158" x2="148" y2="172" stroke="#c8b89a" stroke-width="1"/>
+          <line x1="172" y1="158" x2="172" y2="172" stroke="#c8b89a" stroke-width="1"/>
+          <line x1="195" y1="158" x2="195" y2="172" stroke="#c8b89a" stroke-width="1"/>
+          <circle cx="125" cy="174" r="4" fill="rgba(200,184,154,0.5)"/>
+          <circle cx="148" cy="174" r="4" fill="rgba(200,184,154,0.5)"/>
+          <circle cx="172" cy="174" r="4" fill="rgba(200,184,154,0.5)"/>
+          <circle cx="195" cy="174" r="4" fill="rgba(200,184,154,0.5)"/>
+          <!-- Wall art panels -->
+          <rect x="20" y="40" width="60" height="80" fill="rgba(200,184,154,0.1)" stroke="#c8c0b5" stroke-width="0.8"/>
+          <rect x="240" y="40" width="60" height="80" fill="rgba(200,184,154,0.1)" stroke="#c8c0b5" stroke-width="0.8"/>
+          <text x="160" y="312" text-anchor="middle" font-family="Cormorant Garamond,serif" font-size="9" fill="#8a7a6a" letter-spacing="2">DINING · BRASS CHANDELIER</text>
+        </svg>`
+      }
+    ]
+  },
+  {
+    title: "The Blue City Haveli",
+    tag: "Residential · Jodhpur",
+    area: "3,800 sq.ft", type: "Civil + Interior", tier: "Ultra Luxury", duration: "14 months",
+    desc: "A heritage haveli in the old city of Jodhpur — one of the most demanding conservation projects in our portfolio. Original sandstone facades preserved; internal walls relined with indigo-washed Jodhpur plaster. Traditional jali screens restored and back-lit. A rooftop terrace added with views of Mehrangarh Fort. Locally sourced every material.",
+    color: "#ece8e0",
+    plans: [
+      {
+        label: "Haveli Floor Plan",
+        svg: `<svg viewBox="0 0 320 320" xmlns="http://www.w3.org/2000/svg" width="100%" height="100%">
+          <rect width="320" height="320" fill="#f0ede6"/>
+          <defs><pattern id="g2" width="14" height="14" patternUnits="userSpaceOnUse"><path d="M 14 0 L 0 0 0 14" fill="none" stroke="#e4e0d8" stroke-width="0.4"/></pattern></defs>
+          <rect width="320" height="320" fill="url(#g2)"/>
+          <!-- Outer haveli walls — thick sandstone -->
+          <rect x="15" y="15" width="290" height="290" fill="none" stroke="#8a7355" stroke-width="6"/>
+          <rect x="20" y="20" width="280" height="280" fill="none" stroke="#1a1916" stroke-width="1.5"/>
+          <!-- Central courtyard -->
+          <rect x="100" y="100" width="120" height="120" fill="rgba(184,153,106,0.2)" stroke="#b8996a" stroke-width="1.5" stroke-dasharray="4,2"/>
+          <text x="160" y="163" text-anchor="middle" font-family="Cormorant Garamond,serif" font-size="9" fill="#b8996a" letter-spacing="1.5">CHOWK</text>
+          <text x="160" y="176" text-anchor="middle" font-family="Jost,sans-serif" font-size="7" fill="#c8b89a">COURTYARD</text>
+          <!-- Room around courtyard -->
+          <rect x="20" y="20" width="80" height="80" fill="rgba(200,184,154,0.15)" stroke="#1a1916" stroke-width="1.2"/>
+          <text x="60" y="63" text-anchor="middle" font-family="Cormorant Garamond,serif" font-size="8" fill="#8a7a6a" letter-spacing="1">ROOM 1</text>
+          <rect x="220" y="20" width="80" height="80" fill="rgba(200,184,154,0.12)" stroke="#1a1916" stroke-width="1.2"/>
+          <text x="260" y="63" text-anchor="middle" font-family="Cormorant Garamond,serif" font-size="8" fill="#8a7a6a" letter-spacing="1">ROOM 2</text>
+          <rect x="20" y="220" width="80" height="80" fill="rgba(200,184,154,0.12)" stroke="#1a1916" stroke-width="1.2"/>
+          <text x="60" y="263" text-anchor="middle" font-family="Cormorant Garamond,serif" font-size="8" fill="#8a7a6a" letter-spacing="1">DINING</text>
+          <rect x="220" y="220" width="80" height="80" fill="rgba(200,184,154,0.1)" stroke="#1a1916" stroke-width="1.2"/>
+          <text x="260" y="263" text-anchor="middle" font-family="Cormorant Garamond,serif" font-size="8" fill="#8a7a6a" letter-spacing="1">BATH</text>
+          <!-- Jharokha balcony markers -->
+          <rect x="100" y="20" width="120" height="20" fill="rgba(184,153,106,0.25)" stroke="#b8996a" stroke-width="0.8"/>
+          <text x="160" y="33" text-anchor="middle" font-family="Jost,sans-serif" font-size="6" fill="#b8996a" letter-spacing="1">JHAROKHA</text>
+          <!-- Jali screens on south -->
+          <rect x="100" y="280" width="120" height="20" fill="rgba(184,153,106,0.15)" stroke="#b8996a" stroke-width="0.8" stroke-dasharray="3,1"/>
+          <text x="160" y="293" text-anchor="middle" font-family="Jost,sans-serif" font-size="6" fill="#b8996a" letter-spacing="1">JALI SCREEN</text>
+          <!-- Rooftop stair -->
+          <rect x="20" y="100" width="40" height="80" fill="rgba(200,184,154,0.08)" stroke="#1a1916" stroke-width="1.2"/>
+          <text x="40" y="143" text-anchor="middle" font-family="Cormorant Garamond,serif" font-size="7" fill="#9e9c97">STAIR</text>
+          <circle cx="298" cy="34" r="8" fill="none" stroke="#c8b89a" stroke-width="0.6"/>
+          <text x="298" y="37" text-anchor="middle" font-family="Jost,sans-serif" font-size="7" fill="#c8b89a">N</text>
+        </svg>`
+      },
+      {
+        label: "Courtyard Render",
+        svg: `<svg viewBox="0 0 320 320" xmlns="http://www.w3.org/2000/svg" width="100%" height="100%">
+          <rect width="320" height="320" fill="#e8e2d8"/>
+          <!-- Sky/open courtyard -->
+          <rect x="0" y="0" width="320" height="200" fill="rgba(210,225,240,0.3)"/>
+          <!-- Sandstone floor -->
+          <rect x="0" y="240" width="320" height="80" fill="#c8b898"/>
+          <!-- Jodhpur stone tile joints -->
+          <line x1="0" y1="275" x2="320" y2="275" stroke="#b8a880" stroke-width="0.8"/>
+          <line x1="80" y1="240" x2="80" y2="320" stroke="#b8a880" stroke-width="0.6"/>
+          <line x1="160" y1="240" x2="160" y2="320" stroke="#b8a880" stroke-width="0.6"/>
+          <line x1="240" y1="240" x2="240" y2="320" stroke="#b8a880" stroke-width="0.6"/>
+          <!-- Sandstone walls with indigo plaster -->
+          <rect x="0" y="40" width="40" height="200" fill="#8a7355"/>
+          <rect x="280" y="40" width="40" height="200" fill="#8a7355"/>
+          <!-- Indigo wash -->
+          <rect x="0" y="40" width="40" height="200" fill="rgba(40,60,100,0.15)"/>
+          <rect x="280" y="40" width="40" height="200" fill="rgba(40,60,100,0.15)"/>
+          <!-- Jali screen back-lit -->
+          <rect x="40" y="60" width="240" height="140" fill="rgba(184,153,106,0.08)"/>
+          <!-- Jali pattern -->
+          <g stroke="#c8b89a" stroke-width="0.6" opacity="0.7">
+            <line x1="40" y1="80" x2="280" y2="80"/>
+            <line x1="40" y1="100" x2="280" y2="100"/>
+            <line x1="40" y1="120" x2="280" y2="120"/>
+            <line x1="40" y1="140" x2="280" y2="140"/>
+            <line x1="40" y1="160" x2="280" y2="160"/>
+            <line x1="40" y1="180" x2="280" y2="180"/>
+            <line x1="80" y1="60" x2="80" y2="200"/>
+            <line x1="120" y1="60" x2="120" y2="200"/>
+            <line x1="160" y1="60" x2="160" y2="200"/>
+            <line x1="200" y1="60" x2="200" y2="200"/>
+            <line x1="240" y1="60" x2="240" y2="200"/>
+          </g>
+          <!-- Backlit glow -->
+          <rect x="40" y="60" width="240" height="140" fill="rgba(255,220,120,0.06)"/>
+          <!-- Central water feature / pot -->
+          <ellipse cx="160" cy="245" rx="30" ry="12" fill="#b8a880" stroke="#9a8860" stroke-width="1"/>
+          <ellipse cx="160" cy="240" rx="28" ry="10" fill="#c8b898"/>
+          <!-- Arched doorways -->
+          <path d="M 60 200 L 60 250 A 30 30 0 0 0 120 250 L 120 200" fill="rgba(50,70,110,0.12)" stroke="#8a7355" stroke-width="1.2"/>
+          <path d="M 200 200 L 200 250 A 30 30 0 0 0 260 250 L 260 200" fill="rgba(50,70,110,0.12)" stroke="#8a7355" stroke-width="1.2"/>
+          <text x="160" y="312" text-anchor="middle" font-family="Cormorant Garamond,serif" font-size="9" fill="#8a7a6a" letter-spacing="2">CHOWK · BACKLIT JALI</text>
+        </svg>`
+      },
+      {
+        label: "Bedroom Render",
+        svg: `<svg viewBox="0 0 320 320" xmlns="http://www.w3.org/2000/svg" width="100%" height="100%">
+          <rect width="320" height="320" fill="#e4dfd5"/>
+          <rect x="0" y="242" width="320" height="78" fill="#c8bfb0"/>
+          <!-- Jodhpur stone floor tiles -->
+          <line x1="0" y1="280" x2="320" y2="280" stroke="#b8b0a0" stroke-width="0.7"/>
+          <line x1="80" y1="242" x2="80" y2="320" stroke="#b8b0a0" stroke-width="0.5"/>
+          <line x1="160" y1="242" x2="160" y2="320" stroke="#b8b0a0" stroke-width="0.5"/>
+          <line x1="240" y1="242" x2="240" y2="320" stroke="#b8b0a0" stroke-width="0.5"/>
+          <!-- Indigo plaster walls -->
+          <rect x="0" y="0" width="320" height="242" fill="#d8d3ca"/>
+          <rect x="0" y="0" width="320" height="242" fill="rgba(40,60,110,0.07)"/>
+          <!-- Carved wood arch detail at top -->
+          <path d="M 80 0 Q 160 40 240 0" fill="none" stroke="#c8b89a" stroke-width="1.5"/>
+          <!-- Jali window -->
+          <rect x="220" y="30" width="80" height="120" fill="rgba(255,220,150,0.2)" stroke="#c8b89a" stroke-width="1"/>
+          <g stroke="#c8b89a" stroke-width="0.5" opacity="0.6">
+            <line x1="240" y1="30" x2="240" y2="150"/><line x1="260" y1="30" x2="260" y2="150"/>
+            <line x1="280" y1="30" x2="280" y2="150"/>
+            <line x1="220" y1="60" x2="300" y2="60"/><line x1="220" y1="90" x2="300" y2="90"/>
+            <line x1="220" y1="120" x2="300" y2="120"/>
+          </g>
+          <!-- Bed with hand-block print textile -->
+          <rect x="60" y="145" width="200" height="72" fill="#d0c8b8" rx="2"/>
+          <rect x="60" y="145" width="200" height="22" fill="#dcd4c4" rx="2"/>
+          <!-- Block print pattern on bedcover -->
+          <line x1="70" y1="165" x2="250" y2="165" stroke="#b8a880" stroke-width="0.4" stroke-dasharray="4,3"/>
+          <line x1="70" y1="180" x2="250" y2="180" stroke="#b8a880" stroke-width="0.4" stroke-dasharray="4,3"/>
+          <!-- Carved wood headboard -->
+          <rect x="55" y="100" width="210" height="48" fill="#a08060" rx="2"/>
+          <path d="M 70 120 Q 90 105 110 120 Q 130 105 150 120 Q 170 105 190 120 Q 210 105 230 120 Q 250 105 270 120" fill="none" stroke="#c8a870" stroke-width="1.2"/>
+          <!-- Nightstands brass legs -->
+          <rect x="15" y="165" width="40" height="38" fill="#b0a890" rx="1"/>
+          <rect x="265" y="165" width="40" height="38" fill="#b0a890" rx="1"/>
+          <!-- Brass oil lamp -->
+          <ellipse cx="35" cy="162" rx="8" ry="3" fill="#b8996a"/>
+          <line x1="35" y1="155" x2="35" y2="163" stroke="#b8996a" stroke-width="2"/>
+          <text x="160" y="312" text-anchor="middle" font-family="Cormorant Garamond,serif" font-size="9" fill="#8a7a6a" letter-spacing="2">HAVELI SUITE · INDIGO PLASTER</text>
+        </svg>`
+      },
+      {
+        label: "Rooftop Terrace",
+        svg: `<svg viewBox="0 0 320 320" xmlns="http://www.w3.org/2000/svg" width="100%" height="100%">
+          <rect width="320" height="320" fill="#e0dbd2"/>
+          <!-- Sky gradient suggestion -->
+          <rect x="0" y="0" width="320" height="160" fill="rgba(210,225,245,0.4)"/>
+          <!-- Mehrangarh Fort silhouette in distance -->
+          <rect x="0" y="95" width="320" height="10" fill="#b8a880" opacity="0.4"/>
+          <path d="M 20 95 L 40 80 L 60 95 L 80 75 L 100 95 L 120 85 L 140 95" fill="#a89060" opacity="0.3"/>
+          <path d="M 200 95 L 220 78 L 240 95 L 260 82 L 280 95 L 300 88 L 320 95" fill="#a89060" opacity="0.3"/>
+          <!-- Terrace floor - kota stone -->
+          <rect x="0" y="200" width="320" height="120" fill="#c0b898"/>
+          <line x1="0" y1="250" x2="320" y2="250" stroke="#b0a888" stroke-width="0.8"/>
+          <line x1="80" y1="200" x2="80" y2="320" stroke="#b0a888" stroke-width="0.6"/>
+          <line x1="160" y1="200" x2="160" y2="320" stroke="#b0a888" stroke-width="0.6"/>
+          <line x1="240" y1="200" x2="240" y2="320" stroke="#b0a888" stroke-width="0.6"/>
+          <!-- Sandstone parapet walls -->
+          <rect x="0" y="150" width="320" height="50" fill="#b8a870"/>
+          <rect x="0" y="145" width="320" height="8" fill="#9a8050"/>
+          <!-- Crenellations -->
+          <rect x="10" y="130" width="20" height="20" fill="#b8a870"/>
+          <rect x="50" y="130" width="20" height="20" fill="#b8a870"/>
+          <rect x="90" y="130" width="20" height="20" fill="#b8a870"/>
+          <rect x="130" y="130" width="20" height="20" fill="#b8a870"/>
+          <rect x="170" y="130" width="20" height="20" fill="#b8a870"/>
+          <rect x="210" y="130" width="20" height="20" fill="#b8a870"/>
+          <rect x="250" y="130" width="20" height="20" fill="#b8a870"/>
+          <rect x="290" y="130" width="20" height="20" fill="#b8a870"/>
+          <!-- Seating - low Rajasthani cushions -->
+          <rect x="30" y="185" width="80" height="20" fill="#c8a870" rx="3"/>
+          <rect x="30" y="180" width="80" height="8" fill="#d8b880" rx="2"/>
+          <rect x="210" y="185" width="80" height="20" fill="#c8a870" rx="3"/>
+          <rect x="210" y="180" width="80" height="8" fill="#d8b880" rx="2"/>
+          <!-- Central fire pit / low table -->
+          <ellipse cx="160" cy="208" rx="35" ry="18" fill="#a89060" stroke="#9a8050" stroke-width="1"/>
+          <ellipse cx="160" cy="206" rx="28" ry="12" fill="#b8a070"/>
+          <!-- Lanterns -->
+          <rect x="145" y="175" width="12" height="18" fill="rgba(200,184,154,0.6)" stroke="#c8b89a" stroke-width="0.8" rx="1"/>
+          <rect x="163" y="175" width="12" height="18" fill="rgba(200,184,154,0.6)" stroke="#c8b89a" stroke-width="0.8" rx="1"/>
+          <text x="160" y="312" text-anchor="middle" font-family="Cormorant Garamond,serif" font-size="9" fill="#8a7a6a" letter-spacing="2">ROOFTOP · FORT VIEW TERRACE</text>
+        </svg>`
+      }
+    ]
+  },
+  {
+    title: "Indiranagar Urban Flat",
+    tag: "Residential · Bangalore",
+    area: "1,100 sq.ft", type: "Interior Only", tier: "Premium", duration: "4 months",
+    desc: "A compact 2BHK for a tech executive who spends 60% of their time working from home. The brief was maximum function with zero visual clutter. Hidden storage runs every wall; the kitchen and living merge into a single open volume. A dedicated home office with integrated AV was carved from a formerly wasted corner. Palette: putty, off-white, and pale oak.",
+    color: "#e5e0d8",
+    plans: [
+      {
+        label: "Floor Plan",
+        svg: `<svg viewBox="0 0 320 320" xmlns="http://www.w3.org/2000/svg" width="100%" height="100%">
+          <rect width="320" height="320" fill="#eeebe6"/>
+          <defs><pattern id="g3" width="14" height="14" patternUnits="userSpaceOnUse"><path d="M 14 0 L 0 0 0 14" fill="none" stroke="#e2ddd6" stroke-width="0.4"/></pattern></defs>
+          <rect width="320" height="320" fill="url(#g3)"/>
+          <rect x="20" y="20" width="280" height="280" fill="none" stroke="#1a1916" stroke-width="2.5"/>
+          <!-- Open plan living + kitchen -->
+          <rect x="20" y="20" width="190" height="140" fill="rgba(200,184,154,0.18)" stroke="#1a1916" stroke-width="1.2"/>
+          <text x="115" y="90" text-anchor="middle" font-family="Cormorant Garamond,serif" font-size="9" fill="#8a7a6a" letter-spacing="1.5">LIVING + KITCHEN</text>
+          <text x="115" y="103" text-anchor="middle" font-family="Jost,sans-serif" font-size="7" fill="#c8b89a" letter-spacing="1">OPEN PLAN · 36 SQ.M</text>
+          <!-- Home office (carved corner) -->
+          <rect x="210" y="20" width="90" height="140" fill="rgba(184,153,106,0.2)" stroke="#b8996a" stroke-width="1.2" stroke-dasharray="5,2"/>
+          <text x="255" y="88" text-anchor="middle" font-family="Cormorant Garamond,serif" font-size="9" fill="#b8996a" letter-spacing="1">HOME</text>
+          <text x="255" y="101" text-anchor="middle" font-family="Cormorant Garamond,serif" font-size="9" fill="#b8996a">OFFICE</text>
+          <!-- Master bed -->
+          <rect x="20" y="160" width="130" height="140" fill="rgba(200,184,154,0.14)" stroke="#1a1916" stroke-width="1.2"/>
+          <text x="85" y="232" text-anchor="middle" font-family="Cormorant Garamond,serif" font-size="9" fill="#8a7a6a" letter-spacing="1.5">MASTER BED</text>
+          <!-- Bed 2 -->
+          <rect x="150" y="160" width="90" height="90" fill="rgba(200,184,154,0.1)" stroke="#1a1916" stroke-width="1.2"/>
+          <text x="195" y="208" text-anchor="middle" font-family="Cormorant Garamond,serif" font-size="8" fill="#8a7a6a">BED 2</text>
+          <!-- Bath -->
+          <rect x="150" y="250" width="90" height="50" fill="rgba(200,184,154,0.08)" stroke="#1a1916" stroke-width="1.2"/>
+          <text x="195" y="278" text-anchor="middle" font-family="Cormorant Garamond,serif" font-size="7" fill="#9e9c97">BATH</text>
+          <!-- Hidden storage strip -->
+          <rect x="240" y="160" width="60" height="140" fill="rgba(200,184,154,0.1)" stroke="#c8b89a" stroke-width="0.8" stroke-dasharray="3,2"/>
+          <text x="270" y="238" text-anchor="middle" font-family="Jost,sans-serif" font-size="6" fill="#c8b89a" letter-spacing="1">STORAGE</text>
+          <circle cx="298" cy="36" r="8" fill="none" stroke="#c8b89a" stroke-width="0.6"/>
+          <text x="298" y="39" text-anchor="middle" font-family="Jost,sans-serif" font-size="7" fill="#c8b89a">N</text>
+        </svg>`
+      },
+      {
+        label: "Open Plan Living Render",
+        svg: `<svg viewBox="0 0 320 320" xmlns="http://www.w3.org/2000/svg" width="100%" height="100%">
+          <rect width="320" height="320" fill="#ede9e2"/>
+          <!-- Pale oak floor -->
+          <rect x="0" y="242" width="320" height="78" fill="#d4c8b0"/>
+          <line x1="0" y1="275" x2="320" y2="275" stroke="#c4b8a0" stroke-width="0.8"/>
+          <line x1="53" y1="242" x2="53" y2="320" stroke="#c4b8a0" stroke-width="0.5"/>
+          <line x1="106" y1="242" x2="106" y2="320" stroke="#c4b8a0" stroke-width="0.5"/>
+          <line x1="160" y1="242" x2="160" y2="320" stroke="#c4b8a0" stroke-width="0.5"/>
+          <line x1="213" y1="242" x2="213" y2="320" stroke="#c4b8a0" stroke-width="0.5"/>
+          <line x1="266" y1="242" x2="266" y2="320" stroke="#c4b8a0" stroke-width="0.5"/>
+          <!-- Putty walls -->
+          <rect x="0" y="0" width="320" height="242" fill="#e4e0d8"/>
+          <!-- Hidden storage wall (floor-to-ceiling flush) -->
+          <rect x="0" y="30" width="50" height="212" fill="#dedad2"/>
+          <line x1="0" y1="80" x2="50" y2="80" stroke="#ccc8c0" stroke-width="0.4"/>
+          <line x1="0" y1="130" x2="50" y2="130" stroke="#ccc8c0" stroke-width="0.4"/>
+          <line x1="0" y1="180" x2="50" y2="180" stroke="#ccc8c0" stroke-width="0.4"/>
+          <!-- Handle strip -->
+          <line x1="48" y1="30" x2="48" y2="242" stroke="#b8b0a8" stroke-width="1.5"/>
+          <!-- Kitchen integrated -->
+          <rect x="240" y="30" width="80" height="80" fill="#d8d4cc"/>
+          <rect x="240" y="108" width="80" height="6" fill="#9a8870"/><!-- counter -->
+          <rect x="240" y="35" width="80" height="45" fill="#d0ccc4" stroke="#c4c0b8" stroke-width="0.5"/><!-- upper cab -->
+          <line x1="280" y1="35" x2="280" y2="80" stroke="#b8b4ac" stroke-width="0.4"/>
+          <!-- Sofa putty -->
+          <rect x="70" y="188" width="170" height="54" fill="#c8c4bc" rx="3"/>
+          <rect x="70" y="172" width="170" height="22" fill="#d4d0c8" rx="3"/>
+          <!-- Coffee table pale oak -->
+          <rect x="110" y="235" width="100" height="30" fill="#c8bca8" rx="1"/>
+          <!-- Floor lamp -->
+          <line x1="55" y1="175" x2="55" y2="242" stroke="#9a9088" stroke-width="2"/>
+          <ellipse cx="55" cy="172" rx="16" ry="5" fill="#e8e4dc" stroke="#c8c4bc" stroke-width="0.8"/>
+          <!-- Window with no curtain — minimal -->
+          <rect x="180" y="10" width="60" height="200" fill="rgba(220,235,250,0.3)" stroke="#d0ccC4" stroke-width="0.6"/>
+          <text x="160" y="312" text-anchor="middle" font-family="Cormorant Garamond,serif" font-size="9" fill="#8a7a6a" letter-spacing="2">OPEN PLAN · PUTTY + OAK</text>
+        </svg>`
+      },
+      {
+        label: "Home Office Render",
+        svg: `<svg viewBox="0 0 320 320" xmlns="http://www.w3.org/2000/svg" width="100%" height="100%">
+          <rect width="320" height="320" fill="#e8e4dc"/>
+          <!-- Floor pale oak -->
+          <rect x="0" y="245" width="320" height="75" fill="#d0c4ac"/>
+          <line x1="64" y1="245" x2="64" y2="320" stroke="#c0b49c" stroke-width="0.5"/>
+          <line x1="128" y1="245" x2="128" y2="320" stroke="#c0b49c" stroke-width="0.5"/>
+          <line x1="192" y1="245" x2="192" y2="320" stroke="#c0b49c" stroke-width="0.5"/>
+          <line x1="256" y1="245" x2="256" y2="320" stroke="#c0b49c" stroke-width="0.5"/>
+          <!-- Walls -->
+          <rect x="0" y="0" width="320" height="245" fill="#e0dcd4"/>
+          <!-- Integrated AV wall (dark) -->
+          <rect x="0" y="20" width="120" height="200" fill="#2a2826"/>
+          <!-- Monitor/TV -->
+          <rect x="10" y="60" width="100" height="65" fill="#1a1816" rx="1"/>
+          <rect x="18" y="66" width="84" height="53" fill="#2e3038" rx="1"/>
+          <!-- Speaker grilles -->
+          <rect x="10" y="140" width="45" height="60" fill="#222018" rx="1"/>
+          <rect x="65" y="140" width="45" height="60" fill="#222018" rx="1"/>
+          <!-- Desk — pale oak floating -->
+          <rect x="30" y="210" width="260" height="35" fill="#c8b898" rx="1"/>
+          <rect x="30" y="243" width="10" height="30" fill="#b8a880"/>
+          <rect x="278" y="243" width="10" height="30" fill="#b8a880"/>
+          <!-- Ergonomic chair -->
+          <ellipse cx="165" cy="268" rx="40" ry="14" fill="#8a8278"/>
+          <rect x="148" y="228" width="34" height="40" fill="#9a9288" rx="3"/>
+          <!-- Monitor on desk -->
+          <rect x="140" y="180" width="80" height="32" fill="#1a1816" rx="1"/>
+          <rect x="184" y="210" width="8" height="14" fill="#1a1816"/>
+          <!-- Laptop -->
+          <rect x="220" y="207" width="55" height="35" fill="#3a3830" rx="1"/>
+          <!-- Window -->
+          <rect x="240" y="30" width="70" height="160" fill="rgba(220,235,250,0.35)" stroke="#d0ccC4" stroke-width="0.8"/>
+          <line x1="275" y1="30" x2="275" y2="190" stroke="#d0ccC4" stroke-width="0.5"/>
+          <!-- LED strip under desk -->
+          <line x1="30" y1="243" x2="290" y2="243" stroke="rgba(184,153,106,0.5)" stroke-width="2"/>
+          <text x="160" y="312" text-anchor="middle" font-family="Cormorant Garamond,serif" font-size="9" fill="#8a7a6a" letter-spacing="2">HOME OFFICE · AV WALL</text>
+        </svg>`
+      },
+      {
+        label: "Bathroom Render",
+        svg: `<svg viewBox="0 0 320 320" xmlns="http://www.w3.org/2000/svg" width="100%" height="100%">
+          <rect width="320" height="320" fill="#e4e0d8"/>
+          <!-- Terrazzo floor -->
+          <rect x="0" y="242" width="320" height="78" fill="#c8c4bc"/>
+          <!-- Terrazzo dots -->
+          <circle cx="30" cy="265" r="2" fill="#b8b0a0" opacity="0.5"/>
+          <circle cx="80" cy="275" r="1.5" fill="#a8a098" opacity="0.5"/>
+          <circle cx="140" cy="260" r="2" fill="#b8b0a0" opacity="0.5"/>
+          <circle cx="200" cy="270" r="1.5" fill="#a8a098" opacity="0.5"/>
+          <circle cx="260" cy="258" r="2" fill="#b8b0a0" opacity="0.5"/>
+          <circle cx="300" cy="272" r="1.5" fill="#a8a098" opacity="0.5"/>
+          <!-- Large slab walls -->
+          <rect x="0" y="0" width="320" height="242" fill="#dcdad4"/>
+          <line x1="0" y1="121" x2="320" y2="121" stroke="#ccc8c2" stroke-width="0.8"/>
+          <line x1="160" y1="0" x2="160" y2="242" stroke="#ccc8c2" stroke-width="0.6"/>
+          <!-- Floating vanity -->
+          <rect x="20" y="180" width="120" height="35" fill="#b8b4ac" rx="1"/>
+          <!-- Vessel sink -->
+          <ellipse cx="80" cy="180" rx="28" ry="12" fill="#d8d4cc" stroke="#c8c4bc" stroke-width="1"/>
+          <ellipse cx="80" cy="179" rx="22" ry="8" fill="#e4e0d8"/>
+          <!-- Brass mixer tap -->
+          <line x1="80" y1="168" x2="80" y2="155" stroke="#b8996a" stroke-width="3"/>
+          <line x1="70" y1="155" x2="90" y2="155" stroke="#b8996a" stroke-width="2"/>
+          <!-- Mirror frameless -->
+          <rect x="25" y="40" width="110" height="120" fill="rgba(210,215,220,0.5)" stroke="#d0ccc4" stroke-width="0.8"/>
+          <!-- Shower right side -->
+          <rect x="200" y="40" width="110" height="200" fill="rgba(215,218,222,0.3)" stroke="#c8c4bc" stroke-width="1"/>
+          <line x1="200" y1="40" x2="200" y2="240" stroke="#c0bcb4" stroke-width="2"/><!-- glass -->
+          <!-- Shower head -->
+          <circle cx="240" cy="60" r="18" fill="none" stroke="#b8b4ac" stroke-width="1.5"/>
+          <line x1="240" y1="40" x2="240" y2="42" stroke="#9e9a92" stroke-width="2"/>
+          <!-- Linear drain -->
+          <line x1="200" y1="235" x2="310" y2="235" stroke="#b0aca4" stroke-width="1.5"/>
+          <text x="160" y="312" text-anchor="middle" font-family="Cormorant Garamond,serif" font-size="9" fill="#8a7a6a" letter-spacing="2">BATHROOM · TERRAZZO + BRASS</text>
+        </svg>`
+      }
+    ]
+  },
+  {
+    title: "Jubilee Hills Penthouse",
+    tag: "Residential · Hyderabad",
+    area: "5,200 sq.ft", type: "Turnkey", tier: "Ultra Luxury", duration: "13 months",
+    desc: "A sky home across two floors atop a premier high-rise in Jubilee Hills. The double-height living room anchors the main floor; a floating steel staircase leads to the private upper level. The master suite occupies the entire east wing, with a freestanding stone bath and a wardrobe room lined in hand-stitched suede. A rooftop garden pavilion was designed for al-fresco dining.",
+    color: "#eae5dc",
+    plans: [
+      {
+        label: "Lower Level Plan",
+        svg: `<svg viewBox="0 0 320 320" xmlns="http://www.w3.org/2000/svg" width="100%" height="100%">
+          <rect width="320" height="320" fill="#f0ede8"/>
+          <defs><pattern id="g4" width="14" height="14" patternUnits="userSpaceOnUse"><path d="M 14 0 L 0 0 0 14" fill="none" stroke="#e2dfd8" stroke-width="0.4"/></pattern></defs>
+          <rect width="320" height="320" fill="url(#g4)"/>
+          <rect x="15" y="15" width="290" height="290" fill="none" stroke="#1a1916" stroke-width="2.5"/>
+          <!-- Double-height living (central) -->
+          <rect x="15" y="15" width="170" height="150" fill="rgba(200,184,154,0.2)" stroke="#1a1916" stroke-width="1.2"/>
+          <text x="100" y="90" text-anchor="middle" font-family="Cormorant Garamond,serif" font-size="9" fill="#8a7a6a" letter-spacing="1.5">DOUBLE-HEIGHT</text>
+          <text x="100" y="103" text-anchor="middle" font-family="Cormorant Garamond,serif" font-size="9" fill="#8a7a6a">LIVING</text>
+          <text x="100" y="116" text-anchor="middle" font-family="Jost,sans-serif" font-size="7" fill="#c8b89a" letter-spacing="1">48 SQ.M</text>
+          <!-- Staircase -->
+          <rect x="185" y="15" width="50" height="80" fill="rgba(184,153,106,0.2)" stroke="#b8996a" stroke-width="1" stroke-dasharray="4,2"/>
+          <text x="210" y="58" text-anchor="middle" font-family="Cormorant Garamond,serif" font-size="7" fill="#b8996a">STAIR</text>
+          <!-- Wine Room -->
+          <rect x="235" y="15" width="70" height="80" fill="rgba(200,184,154,0.12)" stroke="#1a1916" stroke-width="1.2"/>
+          <text x="270" y="58" text-anchor="middle" font-family="Cormorant Garamond,serif" font-size="8" fill="#8a7a6a">WINE</text>
+          <!-- AV lounge -->
+          <rect x="185" y="95" width="120" height="70" fill="rgba(200,184,154,0.15)" stroke="#1a1916" stroke-width="1.2"/>
+          <text x="245" y="133" text-anchor="middle" font-family="Cormorant Garamond,serif" font-size="8" fill="#8a7a6a">AV LOUNGE</text>
+          <!-- Kitchen + Dining -->
+          <rect x="15" y="165" width="170" height="140" fill="rgba(200,184,154,0.14)" stroke="#1a1916" stroke-width="1.2"/>
+          <text x="100" y="238" text-anchor="middle" font-family="Cormorant Garamond,serif" font-size="9" fill="#8a7a6a">KITCHEN + DINING</text>
+          <!-- Guest suite -->
+          <rect x="185" y="165" width="120" height="140" fill="rgba(200,184,154,0.1)" stroke="#1a1916" stroke-width="1.2"/>
+          <text x="245" y="238" text-anchor="middle" font-family="Cormorant Garamond,serif" font-size="8" fill="#8a7a6a">GUEST SUITE</text>
+          <circle cx="298" cy="30" r="8" fill="none" stroke="#c8b89a" stroke-width="0.6"/>
+          <text x="298" y="33" text-anchor="middle" font-family="Jost,sans-serif" font-size="7" fill="#c8b89a">N</text>
+        </svg>`
+      },
+      {
+        label: "Double-Height Living",
+        svg: `<svg viewBox="0 0 320 320" xmlns="http://www.w3.org/2000/svg" width="100%" height="100%">
+          <rect width="320" height="320" fill="#eae5dc"/>
+          <!-- Floor marble -->
+          <rect x="0" y="255" width="320" height="65" fill="#d0ccc0"/>
+          <line x1="0" y1="290" x2="320" y2="290" stroke="#c0bcb0" stroke-width="0.8"/>
+          <line x1="80" y1="255" x2="80" y2="320" stroke="#c0bcb0" stroke-width="0.6"/>
+          <line x1="160" y1="255" x2="160" y2="320" stroke="#c0bcb0" stroke-width="0.6"/>
+          <line x1="240" y1="255" x2="240" y2="320" stroke="#c0bcb0" stroke-width="0.6"/>
+          <!-- High ceiling -->
+          <rect x="0" y="0" width="320" height="255" fill="#e8e4dc"/>
+          <!-- Double height walls with vertical panelling -->
+          <rect x="0" y="20" width="30" height="235" fill="#dcdad2"/>
+          <line x1="0" y1="60" x2="30" y2="60" stroke="#ccc8c0" stroke-width="0.5"/>
+          <line x1="0" y1="110" x2="30" y2="110" stroke="#ccc8c0" stroke-width="0.5"/>
+          <line x1="0" y1="160" x2="30" y2="160" stroke="#ccc8c0" stroke-width="0.5"/>
+          <line x1="0" y1="210" x2="30" y2="210" stroke="#ccc8c0" stroke-width="0.5"/>
+          <!-- Floor-to-ceiling windows (panoramic) -->
+          <rect x="60" y="0" width="200" height="255" fill="rgba(205,225,245,0.35)" stroke="#d0ccbf" stroke-width="1"/>
+          <line x1="160" y1="0" x2="160" y2="255" stroke="#d0ccbf" stroke-width="0.8"/>
+          <line x1="110" y1="0" x2="110" y2="255" stroke="#d0ccbf" stroke-width="0.5"/>
+          <line x1="210" y1="0" x2="210" y2="255" stroke="#d0ccbf" stroke-width="0.5"/>
+          <!-- City skyline suggestion -->
+          <rect x="65" y="140" width="195" height="5" fill="rgba(100,120,150,0.15)"/>
+          <path d="M70 140 L85 115 L100 140 L115 100 L130 140 L145 120 L160 140 L175 110 L190 140 L205 125 L220 140 L235 108 L250 140" fill="rgba(100,120,150,0.1)"/>
+          <!-- Floating steel staircase -->
+          <line x1="290" y1="40" x2="290" y2="255" stroke="#4a4840" stroke-width="3"/>
+          <line x1="290" y1="80" x2="300" y2="80" stroke="#4a4840" stroke-width="2"/>
+          <line x1="290" y1="110" x2="302" y2="110" stroke="#4a4840" stroke-width="2"/>
+          <line x1="290" y1="140" x2="300" y2="140" stroke="#4a4840" stroke-width="2"/>
+          <line x1="290" y1="170" x2="302" y2="170" stroke="#4a4840" stroke-width="2"/>
+          <line x1="290" y1="200" x2="300" y2="200" stroke="#4a4840" stroke-width="2"/>
+          <line x1="290" y1="230" x2="302" y2="230" stroke="#4a4840" stroke-width="2"/>
+          <!-- Sofa -->
+          <rect x="80" y="200" width="180" height="55" fill="#c0b8a8" rx="3"/>
+          <rect x="80" y="183" width="180" height="22" fill="#ccc4b4" rx="3"/>
+          <!-- Coffee table stone -->
+          <rect x="125" y="248" width="110" height="25" fill="#b8b4a8" rx="1"/>
+          <!-- Custom chandelier at double height -->
+          <line x1="160" y1="0" x2="160" y2="90" stroke="#c8b89a" stroke-width="1.2"/>
+          <ellipse cx="160" cy="92" rx="50" ry="15" fill="none" stroke="#b8996a" stroke-width="1.5"/>
+          <ellipse cx="160" cy="92" rx="35" ry="8" fill="rgba(200,184,154,0.2)"/>
+          <text x="160" y="312" text-anchor="middle" font-family="Cormorant Garamond,serif" font-size="9" fill="#8a7a6a" letter-spacing="2">DOUBLE-HEIGHT LIVING · PANORAMA</text>
+        </svg>`
+      },
+      {
+        label: "Master Suite Render",
+        svg: `<svg viewBox="0 0 320 320" xmlns="http://www.w3.org/2000/svg" width="100%" height="100%">
+          <rect width="320" height="320" fill="#e8e3da"/>
+          <!-- Stone bath niche glow -->
+          <rect x="0" y="242" width="320" height="78" fill="#cdc9be"/>
+          <rect x="0" y="0" width="320" height="242" fill="#e0dbd2"/>
+          <!-- Suede-lined wall behind headboard -->
+          <rect x="0" y="50" width="180" height="192" fill="#c8c0b4"/>
+          <!-- Suede texture lines -->
+          <line x1="20" y1="50" x2="20" y2="242" stroke="#b8b0a4" stroke-width="0.4"/>
+          <line x1="40" y1="50" x2="40" y2="242" stroke="#c0b8ac" stroke-width="0.3"/>
+          <line x1="60" y1="50" x2="60" y2="242" stroke="#b8b0a4" stroke-width="0.4"/>
+          <line x1="80" y1="50" x2="80" y2="242" stroke="#c0b8ac" stroke-width="0.3"/>
+          <line x1="100" y1="50" x2="100" y2="242" stroke="#b8b0a4" stroke-width="0.4"/>
+          <line x1="120" y1="50" x2="120" y2="242" stroke="#c0b8ac" stroke-width="0.3"/>
+          <line x1="140" y1="50" x2="140" y2="242" stroke="#b8b0a4" stroke-width="0.4"/>
+          <line x1="160" y1="50" x2="160" y2="242" stroke="#c0b8ac" stroke-width="0.3"/>
+          <!-- Bed -->
+          <rect x="40" y="148" width="220" height="72" fill="#d4cfc5" rx="2"/>
+          <rect x="40" y="148" width="220" height="25" fill="#dedad0" rx="2"/>
+          <!-- Pillows -->
+          <rect x="50" y="154" width="65" height="16" fill="#e8e4dc" rx="2"/>
+          <rect x="128" y="154" width="65" height="16" fill="#e0dcd4" rx="2"/>
+          <rect x="200" y="154" width="50" height="16" fill="#e8e4dc" rx="2"/>
+          <!-- Custom headboard upholstered -->
+          <rect x="38" y="100" width="244" height="52" fill="#b8b0a4" rx="2"/>
+          <!-- Gold accent line -->
+          <line x1="38" y1="115" x2="282" y2="115" stroke="#b8996a" stroke-width="1.5"/>
+          <!-- Nightstands with book/carafe -->
+          <rect x="5" y="170" width="33" height="40" fill="#b0a898" rx="1"/>
+          <rect x="282" y="170" width="33" height="40" fill="#b0a898" rx="1"/>
+          <!-- Stone bath visible through opening -->
+          <rect x="200" y="50" width="120" height="100" fill="rgba(200,195,185,0.3)"/>
+          <ellipse cx="255" cy="100" rx="50" ry="25" fill="#c8c4bc" stroke="#b0aba0" stroke-width="1"/>
+          <ellipse cx="255" cy="100" rx="38" ry="18" fill="#d8d4cc"/>
+          <line x1="255" y1="76" x2="255" y2="62" stroke="#b8996a" stroke-width="2.5"/>
+          <!-- Window wall right -->
+          <rect x="190" y="30" width="10" height="220" fill="rgba(210,225,240,0.2)"/>
+          <text x="160" y="312" text-anchor="middle" font-family="Cormorant Garamond,serif" font-size="9" fill="#8a7a6a" letter-spacing="2">MASTER SUITE · SUEDE + STONE</text>
+        </svg>`
+      },
+      {
+        label: "Rooftop Pavilion",
+        svg: `<svg viewBox="0 0 320 320" xmlns="http://www.w3.org/2000/svg" width="100%" height="100%">
+          <rect width="320" height="320" fill="#ddd9d0"/>
+          <!-- Dusk sky -->
+          <rect x="0" y="0" width="320" height="160" fill="rgba(220,210,200,0.5)"/>
+          <!-- Hyderabad skyline -->
+          <path d="M 0 135 L 20 120 L 40 135 L 55 110 L 70 135 L 90 100 L 105 135 L 120 115 L 140 135 L 160 105 L 175 135 L 195 118 L 210 135 L 225 108 L 240 135 L 260 122 L 280 135 L 295 115 L 320 135" fill="rgba(80,70,60,0.2)"/>
+          <!-- Parapet -->
+          <rect x="0" y="155" width="320" height="30" fill="#c8c0b0"/>
+          <rect x="0" y="150" width="320" height="7" fill="#b8b0a0"/>
+          <!-- Decking kota stone -->
+          <rect x="0" y="235" width="320" height="85" fill="#c0b8a8"/>
+          <line x1="0" y1="272" x2="320" y2="272" stroke="#b0a898" stroke-width="0.7"/>
+          <line x1="80" y1="235" x2="80" y2="320" stroke="#b0a898" stroke-width="0.5"/>
+          <line x1="160" y1="235" x2="160" y2="320" stroke="#b0a898" stroke-width="0.5"/>
+          <line x1="240" y1="235" x2="240" y2="320" stroke="#b0a898" stroke-width="0.5"/>
+          <!-- Pavilion structure -->
+          <line x1="50" y1="185" x2="50" y2="235" stroke="#9a9080" stroke-width="3"/>
+          <line x1="270" y1="185" x2="270" y2="235" stroke="#9a9080" stroke-width="3"/>
+          <rect x="40" y="180" width="240" height="8" fill="#a89880" rx="1"/><!-- beam -->
+          <!-- Dining table -->
+          <rect x="90" y="215" width="140" height="50" fill="#a09278" rx="1"/>
+          <rect x="90" y="210" width="140" height="6" fill="#9a8870"/>
+          <!-- Chairs -->
+          <rect x="65" y="205" width="22" height="55" fill="#8a8278" rx="2"/>
+          <rect x="95" y="192" width="22" height="20" fill="#8a8278" rx="2"/>
+          <rect x="140" y="192" width="22" height="20" fill="#8a8278" rx="2"/>
+          <rect x="185" y="192" width="22" height="20" fill="#8a8278" rx="2"/>
+          <rect x="233" y="205" width="22" height="55" fill="#8a8278" rx="2"/>
+          <!-- Pendant outside light -->
+          <line x1="160" y1="180" x2="160" y2="208" stroke="#c8b89a" stroke-width="1"/>
+          <ellipse cx="160" cy="210" rx="18" ry="6" fill="none" stroke="#b8996a" stroke-width="1.5"/>
+          <!-- Planters -->
+          <ellipse cx="20" cy="240" rx="18" ry="12" fill="#8a9060" opacity="0.8"/>
+          <ellipse cx="300" cy="240" rx="18" ry="12" fill="#8a9060" opacity="0.8"/>
+          <text x="160" y="312" text-anchor="middle" font-family="Cormorant Garamond,serif" font-size="9" fill="#8a7a6a" letter-spacing="2">ROOFTOP PAVILION · AL-FRESCO DINING</text>
+        </svg>`
+      }
+    ]
+  },
+  {
+    title: "Koregaon Park Residence",
+    tag: "Residential · Pune",
+    area: "3,100 sq.ft", type: "Civil + Interior", tier: "Luxury", duration: "10 months",
+    desc: "An 1860s bungalow in the tree-lined streets of Koregaon Park, Pune — the original Mangalore tile roof retained, two Neem trees preserved through careful foundation redesign. Interiors in a warm putty and aged brass palette; original solid wood doors stripped and re-stained. A new open kitchen connects to a courtyard dining area shaded by the original trees.",
+    color: "#e8e3d8",
+    plans: [
+      {
+        label: "Site + Floor Plan",
+        svg: `<svg viewBox="0 0 320 320" xmlns="http://www.w3.org/2000/svg" width="100%" height="100%">
+          <rect width="320" height="320" fill="#eeeae4"/>
+          <defs><pattern id="g5" width="14" height="14" patternUnits="userSpaceOnUse"><path d="M 14 0 L 0 0 0 14" fill="none" stroke="#e0ddd6" stroke-width="0.4"/></pattern></defs>
+          <rect width="320" height="320" fill="url(#g5)"/>
+          <!-- Site boundary -->
+          <rect x="10" y="10" width="300" height="300" fill="rgba(150,180,120,0.08)" stroke="#b8a870" stroke-width="1.5" stroke-dasharray="6,3"/>
+          <!-- Bungalow footprint -->
+          <rect x="40" y="50" width="240" height="180" fill="none" stroke="#1a1916" stroke-width="2.5"/>
+          <!-- Mangalore tile roof hatch -->
+          <g stroke="#b8a870" stroke-width="0.4" opacity="0.4">
+            <line x1="40" y1="60" x2="280" y2="60"/><line x1="40" y1="70" x2="280" y2="70"/>
+            <line x1="40" y1="80" x2="280" y2="80"/><line x1="40" y1="90" x2="280" y2="90"/>
+            <line x1="40" y1="100" x2="280" y2="100"/>
+          </g>
+          <!-- Rooms inside -->
+          <rect x="40" y="50" width="100" height="90" fill="rgba(200,184,154,0.18)" stroke="#1a1916" stroke-width="1.2"/>
+          <text x="90" y="98" text-anchor="middle" font-family="Cormorant Garamond,serif" font-size="8" fill="#8a7a6a">LIVING</text>
+          <rect x="140" y="50" width="140" height="90" fill="rgba(200,184,154,0.14)" stroke="#1a1916" stroke-width="1.2"/>
+          <text x="210" y="98" text-anchor="middle" font-family="Cormorant Garamond,serif" font-size="8" fill="#8a7a6a">MASTER BED</text>
+          <rect x="40" y="140" width="80" height="90" fill="rgba(200,184,154,0.12)" stroke="#1a1916" stroke-width="1.2"/>
+          <text x="80" y="188" text-anchor="middle" font-family="Cormorant Garamond,serif" font-size="8" fill="#8a7a6a">BED 2</text>
+          <rect x="120" y="140" width="80" height="90" fill="rgba(200,184,154,0.12)" stroke="#1a1916" stroke-width="1.2"/>
+          <text x="160" y="188" text-anchor="middle" font-family="Cormorant Garamond,serif" font-size="8" fill="#8a7a6a">BED 3</text>
+          <rect x="200" y="140" width="80" height="90" fill="rgba(200,184,154,0.1)" stroke="#1a1916" stroke-width="1.2"/>
+          <text x="240" y="188" text-anchor="middle" font-family="Cormorant Garamond,serif" font-size="8" fill="#8a7a6a">STUDY</text>
+          <!-- Courtyard dining -->
+          <rect x="40" y="230" width="240" height="80" fill="rgba(150,180,120,0.15)" stroke="#8a9860" stroke-width="1.2" stroke-dasharray="4,2"/>
+          <text x="160" y="272" text-anchor="middle" font-family="Cormorant Garamond,serif" font-size="9" fill="#6a8040" letter-spacing="1.5">COURTYARD DINING</text>
+          <!-- Neem trees -->
+          <circle cx="90" cy="300" r="18" fill="rgba(100,140,70,0.3)" stroke="#6a9040" stroke-width="1.5"/>
+          <text x="90" y="304" text-anchor="middle" font-family="Jost,sans-serif" font-size="6" fill="#6a8040">NEEM</text>
+          <circle cx="230" cy="295" r="15" fill="rgba(100,140,70,0.25)" stroke="#6a9040" stroke-width="1.5"/>
+          <text x="230" y="299" text-anchor="middle" font-family="Jost,sans-serif" font-size="6" fill="#6a8040">NEEM</text>
+          <!-- Open kitchen addition -->
+          <rect x="280" y="120" width="30" height="110" fill="rgba(200,184,154,0.15)" stroke="#b8996a" stroke-width="1" stroke-dasharray="4,2"/>
+          <text x="295" y="178" text-anchor="middle" font-family="Jost,sans-serif" font-size="6" fill="#b8996a">KITCHEN</text>
+          <circle cx="298" cy="28" r="8" fill="none" stroke="#c8b89a" stroke-width="0.6"/>
+          <text x="298" y="31" text-anchor="middle" font-family="Jost,sans-serif" font-size="7" fill="#c8b89a">N</text>
+        </svg>`
+      },
+      {
+        label: "Living Room Render",
+        svg: `<svg viewBox="0 0 320 320" xmlns="http://www.w3.org/2000/svg" width="100%" height="100%">
+          <rect width="320" height="320" fill="#ede8e0"/>
+          <!-- Kota stone floor warm toned -->
+          <rect x="0" y="242" width="320" height="78" fill="#c8bda8"/>
+          <line x1="0" y1="278" x2="320" y2="278" stroke="#b8ad98" stroke-width="0.8"/>
+          <line x1="80" y1="242" x2="80" y2="320" stroke="#b8ad98" stroke-width="0.6"/>
+          <line x1="160" y1="242" x2="160" y2="320" stroke="#b8ad98" stroke-width="0.6"/>
+          <line x1="240" y1="242" x2="240" y2="320" stroke="#b8ad98" stroke-width="0.6"/>
+          <!-- Putty walls -->
+          <rect x="0" y="0" width="320" height="242" fill="#e4dfd6"/>
+          <!-- Exposed Mangalore tile ceiling suggestion -->
+          <rect x="0" y="0" width="320" height="30" fill="#c8baa8"/>
+          <line x1="0" y1="10" x2="320" y2="10" stroke="#b8aa98" stroke-width="0.5"/>
+          <line x1="0" y1="20" x2="320" y2="20" stroke="#b8aa98" stroke-width="0.5"/>
+          <!-- Original wooden window doors stripped & restained -->
+          <rect x="190" y="30" width="90" height="180" fill="rgba(210,200,180,0.25)" stroke="#8a7050" stroke-width="1.5"/>
+          <line x1="235" y1="30" x2="235" y2="210" stroke="#8a7050" stroke-width="1"/>
+          <rect x="195" y="35" width="36" height="80" fill="rgba(180,160,120,0.2)"/>
+          <rect x="235" y="35" width="40" height="80" fill="rgba(180,160,120,0.2)"/>
+          <!-- Antique doorframe on left -->
+          <rect x="0" y="30" width="30" height="212" fill="#9a8060"/>
+          <line x1="5" y1="60" x2="28" y2="60" stroke="#7a6040" stroke-width="0.5"/>
+          <line x1="5" y1="120" x2="28" y2="120" stroke="#7a6040" stroke-width="0.5"/>
+          <line x1="5" y1="180" x2="28" y2="180" stroke="#7a6040" stroke-width="0.5"/>
+          <!-- Sofa warm putty -->
+          <rect x="50" y="188" width="190" height="54" fill="#c4bfb5" rx="3"/>
+          <rect x="50" y="170" width="190" height="23" fill="#d0cbc1" rx="3"/>
+          <!-- Jaipur rug suggestion on floor -->
+          <rect x="40" y="242" width="200" height="50" fill="rgba(184,153,106,0.15)" stroke="#b8a870" stroke-width="0.5" stroke-dasharray="2,2"/>
+          <!-- Coffee table antique wood -->
+          <rect x="100" y="235" width="120" height="35" fill="#a89060" rx="1"/>
+          <!-- Brass floor lamp -->
+          <line x1="35" y1="168" x2="35" y2="242" stroke="#b8996a" stroke-width="2.5"/>
+          <ellipse cx="35" cy="165" rx="15" ry="5" fill="#e0d4b8" stroke="#c8b89a" stroke-width="1"/>
+          <!-- Neem light through window -->
+          <rect x="190" y="30" width="90" height="180" fill="rgba(180,200,140,0.06)"/>
+          <text x="160" y="312" text-anchor="middle" font-family="Cormorant Garamond,serif" font-size="9" fill="#8a7a6a" letter-spacing="2">LIVING · MANGALORE CEILING</text>
+        </svg>`
+      },
+      {
+        label: "Courtyard Dining",
+        svg: `<svg viewBox="0 0 320 320" xmlns="http://www.w3.org/2000/svg" width="100%" height="100%">
+          <rect width="320" height="320" fill="#dcd8d0"/>
+          <!-- Dappled sky through Neem canopy -->
+          <rect x="0" y="0" width="320" height="180" fill="rgba(200,220,180,0.25)"/>
+          <!-- Neem leaf dapple -->
+          <ellipse cx="80" cy="30" rx="60" ry="40" fill="rgba(100,140,70,0.2)"/>
+          <ellipse cx="200" cy="20" rx="80" ry="50" fill="rgba(100,140,70,0.15)"/>
+          <ellipse cx="300" cy="40" rx="50" ry="35" fill="rgba(100,140,70,0.18)"/>
+          <ellipse cx="40" cy="80" rx="55" ry="35" fill="rgba(100,140,70,0.12)"/>
+          <ellipse cx="250" cy="70" rx="65" ry="40" fill="rgba(100,140,70,0.14)"/>
+          <!-- Light patches through -->
+          <ellipse cx="160" cy="100" rx="30" ry="20" fill="rgba(255,245,220,0.3)"/>
+          <ellipse cx="90" cy="130" rx="20" ry="15" fill="rgba(255,245,220,0.2)"/>
+          <!-- Kota stone floor -->
+          <rect x="0" y="230" width="320" height="90" fill="#c0b8a0"/>
+          <line x1="0" y1="267" x2="320" y2="267" stroke="#b0a890" stroke-width="0.7"/>
+          <line x1="80" y1="230" x2="80" y2="320" stroke="#b0a890" stroke-width="0.5"/>
+          <line x1="160" y1="230" x2="160" y2="320" stroke="#b0a890" stroke-width="0.5"/>
+          <line x1="240" y1="230" x2="240" y2="320" stroke="#b0a890" stroke-width="0.5"/>
+          <!-- Bungalow wall / door opening -->
+          <rect x="0" y="150" width="320" height="80" fill="#d4cfc5"/>
+          <rect x="120" y="150" width="80" height="80" fill="rgba(200,184,154,0.1)" stroke="#9a8060" stroke-width="2"/>
+          <!-- Dining table teak -->
+          <rect x="80" y="195" width="160" height="55" fill="#a09060" rx="1"/>
+          <rect x="80" y="190" width="160" height="7" fill="#8a7a50"/>
+          <!-- Chairs cane -->
+          <rect x="55" y="185" width="22" height="60" fill="#b0a880" rx="3"/>
+          <rect x="83" y="168" width="22" height="24" fill="#b0a880" rx="3"/>
+          <rect x="128" y="168" width="22" height="24" fill="#b0a880" rx="3"/>
+          <rect x="170" y="168" width="22" height="24" fill="#b0a880" rx="3"/>
+          <rect x="215" y="168" width="22" height="24" fill="#b0a880" rx="3"/>
+          <rect x="243" y="185" width="22" height="60" fill="#b0a880" rx="3"/>
+          <!-- Old brass lanterns -->
+          <rect x="145" y="155" width="12" height="18" fill="rgba(200,184,154,0.6)" stroke="#c8b89a" stroke-width="0.8" rx="1"/>
+          <rect x="163" y="155" width="12" height="18" fill="rgba(200,184,154,0.6)" stroke="#c8b89a" stroke-width="0.8" rx="1"/>
+          <!-- Neem trunk visible -->
+          <line x1="30" y1="130" x2="30" y2="260" stroke="#7a6040" stroke-width="8"/>
+          <line x1="290" y1="110" x2="290" y2="260" stroke="#7a6040" stroke-width="8"/>
+          <text x="160" y="312" text-anchor="middle" font-family="Cormorant Garamond,serif" font-size="9" fill="#8a7a6a" letter-spacing="2">COURTYARD DINING · NEEM SHADE</text>
+        </svg>`
+      },
+      {
+        label: "Master Bed Render",
+        svg: `<svg viewBox="0 0 320 320" xmlns="http://www.w3.org/2000/svg" width="100%" height="100%">
+          <rect width="320" height="320" fill="#e8e3da"/>
+          <!-- Aged teak floor -->
+          <rect x="0" y="248" width="320" height="72" fill="#c8b898"/>
+          <line x1="64" y1="248" x2="64" y2="320" stroke="#b8a880" stroke-width="0.5"/>
+          <line x1="128" y1="248" x2="128" y2="320" stroke="#b8a880" stroke-width="0.5"/>
+          <line x1="192" y1="248" x2="192" y2="320" stroke="#b8a880" stroke-width="0.5"/>
+          <line x1="256" y1="248" x2="256" y2="320" stroke="#b8a880" stroke-width="0.5"/>
+          <!-- Putty walls -->
+          <rect x="0" y="0" width="320" height="248" fill="#e0dbd2"/>
+          <!-- Exposed tile ceiling -->
+          <rect x="0" y="0" width="320" height="28" fill="#c8baa8"/>
+          <line x1="0" y1="10" x2="320" y2="10" stroke="#b8aa98" stroke-width="0.5"/>
+          <line x1="0" y1="20" x2="320" y2="20" stroke="#b8aa98" stroke-width="0.5"/>
+          <!-- Original wooden door stripped & restained -->
+          <rect x="0" y="28" width="55" height="220" fill="#9a7a50"/>
+          <line x1="27" y1="28" x2="27" y2="248" stroke="#7a5a30" stroke-width="0.8"/>
+          <rect x="4" y="60" width="20" height="80" fill="rgba(160,130,80,0.2)"/>
+          <rect x="4" y="160" width="20" height="60" fill="rgba(160,130,80,0.2)"/>
+          <rect x="30" y="60" width="20" height="80" fill="rgba(160,130,80,0.2)"/>
+          <!-- Aged brass door handle -->
+          <circle cx="24" cy="135" r="4" fill="#b8996a"/>
+          <!-- Bed block-print headboard -->
+          <rect x="75" y="110" width="220" height="48" fill="#b8a890" rx="2"/>
+          <!-- Block print motif on headboard -->
+          <path d="M100 125 Q110 115 120 125 Q130 115 140 125 Q150 115 160 125 Q170 115 180 125 Q190 115 200 125 Q210 115 220 125 Q230 115 240 125 Q250 115 260 125 Q270 115 280 125" fill="none" stroke="#c8a870" stroke-width="1"/>
+          <!-- Bed frame teak -->
+          <rect x="70" y="155" width="210" height="75" fill="#d0cac0" rx="2"/>
+          <rect x="70" y="155" width="210" height="25" fill="#dedad0" rx="2"/>
+          <!-- Block-print bedcover pattern -->
+          <line x1="80" y1="178" x2="270" y2="178" stroke="#c0b090" stroke-width="0.4" stroke-dasharray="5,4"/>
+          <line x1="80" y1="195" x2="270" y2="195" stroke="#c0b090" stroke-width="0.4" stroke-dasharray="5,4"/>
+          <line x1="80" y1="212" x2="270" y2="212" stroke="#c0b090" stroke-width="0.4" stroke-dasharray="5,4"/>
+          <!-- Aged brass nightstands -->
+          <rect x="15" y="168" width="50" height="48" fill="#b0a888" rx="1"/>
+          <circle cx="40" cy="164" r="6" fill="#b8996a" opacity="0.8"/>
+          <rect x="255" y="168" width="50" height="48" fill="#b0a888" rx="1"/>
+          <!-- Window with Neem outside -->
+          <rect x="230" y="28" width="90" height="150" fill="rgba(200,220,180,0.2)" stroke="#9a8060" stroke-width="1.5"/>
+          <line x1="275" y1="28" x2="275" y2="178" stroke="#9a8060" stroke-width="1"/>
+          <ellipse cx="290" cy="50" rx="25" ry="20" fill="rgba(100,140,70,0.2)"/>
+          <text x="160" y="312" text-anchor="middle" font-family="Cormorant Garamond,serif" font-size="9" fill="#8a7a6a" letter-spacing="2">MASTER BED · TEAK + BRASS</text>
+        </svg>`
+      }
+    ]
+  }
+];
+
+let qData = { city: '', area: '', propType: '', scope: '', tier: '' };
+
+function showPage(id) {
+  document.querySelectorAll('.page').forEach(p => p.classList.remove('active'));
+  document.querySelectorAll('.nav-links a').forEach(a => a.classList.remove('active'));
+  document.getElementById('page-' + id).classList.add('active');
+  document.getElementById('nav-' + id).classList.add('active');
+  window.scrollTo(0, 0);
+}
+
+function selectOption(el, key, val) {
+  el.closest('.q-grid').querySelectorAll('.q-option').forEach(o => o.classList.remove('selected'));
+  el.classList.add('selected');
+  qData[key] = val;
+}
+
+function nextStep(n) {
+  if (n === 2 && !qData.city) { alert('Please select a city to continue.'); return; }
+  if (n === 3) {
+    const a = document.getElementById('areaInput').value;
+    const p = document.getElementById('propType').value;
+    if (!a || a < 100) { alert('Please enter a valid built-up area.'); return; }
+    if (!p) { alert('Please select property type.'); return; }
+    qData.area = parseFloat(a);
+    qData.propType = p;
+  }
+  if (n === 4 && !qData.scope) { alert('Please select a work scope to continue.'); return; }
+  document.querySelectorAll('.quote-step').forEach(s => s.classList.remove('active'));
+  document.getElementById('qStep' + n).classList.add('active');
+  const pct = [20, 40, 60, 80, 100];
+  document.getElementById('qProgress').style.width = pct[n-1] + '%';
+}
+
+function calculateQuote() {
+  if (!qData.tier) { alert('Please select a quality tier to continue.'); return; }
+  const cityMult = { 'Mumbai': 1.25, 'Delhi NCR': 1.2, 'Bangalore': 1.15, 'Hyderabad': 1.1, 'Chennai': 1.1, 'Ahmedabad': 0.95, 'Jaipur': 0.9, 'Kolkata': 0.9, 'Other City': 0.85 };
+  const cm = cityMult[qData.city] || 1;
+  const area = qData.area;
+  const civilBase = { premium: 1800, luxury: 2800, ultra: 4500 };
+  const intBase = { premium: 1600, luxury: 2800, ultra: 5500 };
+  const t = qData.tier;
+  const scope = qData.scope;
+  let civil = {}, interior = {};
+  if (scope === 'civil' || scope === 'both') {
+    const civRate = civilBase[t] * cm;
+    civil = {
+      'Brick masonry & plastering': Math.round(area * civRate * 0.18),
+      'RCC slab & structural work': Math.round(area * civRate * 0.22),
+      'Plumbing (supply + drainage)': Math.round(area * civRate * 0.12),
+      'Electrical conduits & DB': Math.round(area * civRate * 0.10),
+      'Flooring (tiles / stone base)': Math.round(area * civRate * 0.14),
+      'Doors & windows (frames)': Math.round(area * civRate * 0.10),
+      'External plastering & waterproof': Math.round(area * civRate * 0.08),
+      'Civil labour & supervision': Math.round(area * civRate * 0.06),
+    };
+  }
+  if (scope === 'interior' || scope === 'both') {
+    const intRate = intBase[t] * cm;
+    interior = {
+      'False ceiling (gypsum / wood)': Math.round(area * intRate * 0.12),
+      'Wall panelling & texture finish': Math.round(area * intRate * 0.10),
+      'Flooring finish (tiles / wood)': Math.round(area * intRate * 0.15),
+      'Modular kitchen (with appliances)': Math.round(area * intRate * 0.14),
+      'Wardrobes & storage joinery': Math.round(area * intRate * 0.12),
+      'Interior doors & hardware': Math.round(area * intRate * 0.07),
+      'Lighting & electrical fitout': Math.round(area * intRate * 0.08),
+      'Paint (premium / textured)': Math.round(area * intRate * 0.05),
+      'Loose furniture & soft furnishings': Math.round(area * intRate * 0.13),
+      'Design fee & supervision': Math.round(area * intRate * 0.04),
+    };
+  }
+  const civTotal = Object.values(civil).reduce((a,b)=>a+b,0);
+  const intTotal = Object.values(interior).reduce((a,b)=>a+b,0);
+  const grandTotal = civTotal + intTotal;
+  let html = '';
+  if (scope === 'civil' || scope === 'both') {
+    html += '<div class="result-card"><p class="r-cat">Civil Works</p>';
+    for (const [k,v] of Object.entries(civil)) {
+      html += `<div class="r-item"><span>${k}</span><span class="r-amt">₹${v.toLocaleString('en-IN')}</span></div>`;
+    }
+    html += `<div class="r-item" style="font-weight:400;color:var(--text-dark);margin-top:6px;"><span>Civil Subtotal</span><span class="r-amt" style="font-size:15px;">₹${civTotal.toLocaleString('en-IN')}</span></div></div>`;
+  }
+  if (scope === 'interior' || scope === 'both') {
+    html += '<div class="result-card"><p class="r-cat">Interior Works</p>';
+    for (const [k,v] of Object.entries(interior)) {
+      html += `<div class="r-item"><span>${k}</span><span class="r-amt">₹${v.toLocaleString('en-IN')}</span></div>`;
+    }
+    html += `<div class="r-item" style="font-weight:400;color:var(--text-dark);margin-top:6px;"><span>Interior Subtotal</span><span class="r-amt" style="font-size:15px;">₹${intTotal.toLocaleString('en-IN')}</span></div></div>`;
+  }
+  html += `<div class="result-total"><div><div class="t-label">Estimated Total</div><div style="font-size:12px;opacity:0.4;margin-top:4px;">${area.toLocaleString()} sq.ft · ${qData.city} · ${qData.tier.charAt(0).toUpperCase()+qData.tier.slice(1)} tier</div></div><div class="t-amt">₹${grandTotal.toLocaleString('en-IN')}</div></div>`;
+  document.getElementById('resultGrid').innerHTML = html;
+  document.getElementById('resultTitle').textContent = 'Your ' + qData.city + ' estimate';
+  document.getElementById('resultSub').textContent = area.toLocaleString() + ' sq.ft · ' + (scope === 'both' ? 'Civil + Interior' : scope.charAt(0).toUpperCase() + scope.slice(1)) + ' · ' + (t === 'ultra' ? 'Ultra Luxury' : t.charAt(0).toUpperCase() + t.slice(1));
+  nextStep(5);
+}
+
+function resetQuote() {
+  qData = { city:'', area:'', propType:'', scope:'', tier:'' };
+  document.querySelectorAll('.q-option').forEach(o => o.classList.remove('selected'));
+  document.getElementById('areaInput').value = '';
+  document.getElementById('propType').value = '';
+  nextStep(1);
+}
+
+function openProject(idx) {
+  const p = projects[idx];
+  document.getElementById('modalTag').textContent = p.tag;
+  document.getElementById('modalTitle').textContent = p.title;
+  document.getElementById('modalDesc').textContent = p.desc;
+
+  // Hero render — use first plan as main render
+  document.getElementById('modalRender').innerHTML = p.plans[0].svg;
+  document.getElementById('modalRender').style.background = p.color;
+
+  document.getElementById('modalSpecs').innerHTML = `
+    <div class="spec-box"><strong>${p.area}</strong>Built-up area</div>
+    <div class="spec-box"><strong>${p.type}</strong>Scope</div>
+    <div class="spec-box"><strong>${p.tier}</strong>Tier</div>
+    <div class="spec-box"><strong>${p.duration}</strong>Duration</div>
+  `;
+
+  // Build rich plan grid with all 4 renders
+  let planHtml = '';
+  p.plans.forEach(plan => {
+    planHtml += `
+      <div class="plan-cell">
+        <div class="plan-img" style="background:${p.color}">
+          ${plan.svg}
+        </div>
+        <div class="plan-label">${plan.label}</div>
+      </div>`;
+  });
+  document.getElementById('modalPlans').innerHTML = planHtml;
+
+  document.getElementById('projectModal').classList.add('open');
+  document.body.style.overflow = 'hidden';
+}
+
+function closeModal() {
+  document.getElementById('projectModal').classList.remove('open');
+  document.body.style.overflow = '';
+}
+
+document.getElementById('projectModal').addEventListener('click', function(e) {
+  if (e.target === this) closeModal();
+});
+
+function submitQuery() {
+  document.getElementById('queryForm').style.display = 'none';
+  document.getElementById('successMsg').style.display = 'block';
+}
+</script>
+
+</body>
+</html>
